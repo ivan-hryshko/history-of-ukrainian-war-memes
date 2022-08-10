@@ -91,7 +91,7 @@
   width: 600px;
   border-radius: 8px;
   padding: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 }
 
 .event-block__info {
