@@ -10,6 +10,10 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 }
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
+body, html {
+  /* overflow: hidden; */
+}
+
 /* Document
    ========================================================================== */
 

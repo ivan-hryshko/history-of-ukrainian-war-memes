@@ -2,20 +2,26 @@
   <div class="events-history_layout">
     <div class="events-history">
       <div class="row-header">
-        <div class="row-header__block-empty">
-
-        </div>
-        <div v-for="week in 56" :key="week" class="row-header__block">
+        <div class="row-header__block-empty" />
+        <div
+          v-for="week in 56"
+          :key="week"
+          class="row-header__block"
+        >
           {{ week }}
         </div>
-
       </div>
-      <div v-for="indexRow in 100" :key="indexRow" class="events-history__row">
+      <div
+        v-for="indexRow in 100"
+        :key="indexRow"
+        class="events-history__row"
+      >
         <div class="events-history__year">
           {{ indexRow }}
         </div>
         <div
-          v-for="index in 56" :key="index"
+          v-for="index in 56"
+          :key="index"
           class="events-history__block"
         >
           <!-- {{ index }} -->
@@ -37,14 +43,14 @@ export default {
   components: {
   },
   setup() {
-    const warStart = new Date("2022-02-24");
-    const currentDate = new Date();
+    const warStart = new Date('2022-02-24')
+    const currentDate = new Date()
 
     // get total seconds between the times
-    const delta = Math.abs(currentDate - warStart) / 1000;
+    const delta = Math.abs(currentDate - warStart) / 1000
 
     // calculate (and subtract) whole days
-    const days = Math.floor(delta / 86400);
+    const days = Math.floor(delta / 86400)
 
     return {
 

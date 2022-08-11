@@ -1,0 +1,15 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 800px 1fr;
+  overflow: hidden;
+
+}
+
+.events {
+  justify-self: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  padding-right: 24px;
+  overflow: scroll;
+  /* height: 100vh; */
+}

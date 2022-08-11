@@ -14,15 +14,20 @@
       </div>
     </div>
     <div
-      v-for="pictureName in pictures" :key="pictureName"
+      v-for="pictureName in pictures"
+      :key="pictureName"
     >
-      <img :src="require(`@/assets/${pictureName}.jpeg`)" class="event-block__image" alt="">
+      <img
+        :src="require(`@/assets/${pictureName}.jpeg`)"
+        class="event-block__image"
+        alt=""
+      >
     </div>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 export default {
   name: 'EventBlock',
@@ -54,18 +59,18 @@ export default {
     const days = ref(0)
     const picturePath = ref(`src/assets/${props.pictureName}`)
 
-    const warStart = new Date("2022-02-24");
-    console.log('warStart evetnt :>> ', warStart);
-    const eventDate = new Date(props.date);
+    const warStart = new Date('2022-02-24')
+    console.log('warStart evetnt :>> ', warStart)
+    const eventDate = new Date(props.date)
 
     // get total seconds between the times
-    const delta = Math.abs(eventDate - warStart) / 1000;
+    const delta = Math.abs(eventDate - warStart) / 1000
 
     // calculate (and subtract) whole days
-    days.value = Math.floor(delta / 86400);
+    days.value = Math.floor(delta / 86400)
     days.value += 1
 
-    console.log('days :>> ', days);
+    console.log('days :>> ', days)
 
     return {
       days,

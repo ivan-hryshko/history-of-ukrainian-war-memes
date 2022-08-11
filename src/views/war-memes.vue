@@ -3,14 +3,16 @@
     <SideBlock />
     <div class="events">
       <eventBlock
-        v-for="event in events" :key="event.date"
+        v-for="event in events"
+        :key="event.date"
         :text="event.text"
         :date="event.date"
         :pictures="event.pictures"
       />
-
     </div>
-    <SideBlock />
+    <SideBlock
+      position="right"
+    />
   </div>
 </template>
 
@@ -51,13 +53,6 @@ export default {
 </script>
 
 <style>
-.layout {
-  display: grid;
-  grid-template-columns: 1fr 800px 1fr;
-}
-
-.events {
-  justify-self: center;
-}
+@import './war-memes.css';
 
 </style>
