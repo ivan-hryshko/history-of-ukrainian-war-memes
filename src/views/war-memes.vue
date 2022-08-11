@@ -1,55 +1,51 @@
 <template>
   <div class="layout">
-    <div class="side-block">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-    </div>
+    <SideBlock />
     <div class="events">
       <eventBlock
-        text="День початку"
-        date="2022-02-25"
-        picture-name="russian-warship"
+        v-for="event in events" :key="event.date"
+        :text="event.text"
+        :date="event.date"
+        :pictures="event.pictures"
       />
 
     </div>
-    <div class="side-block">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-      <img src="@/assets/ukrainian-ornament.jpeg" alt="">
-    </div>
+    <SideBlock />
   </div>
 </template>
 
 <script>
 import { ref } from 'vue'
 import eventBlock from '@/components/event-block'
+import SideBlock from '@/components/side-block'
+import events from '@/json/events.json'
 
 export default {
   name: 'WarMemes',
   components: {
     eventBlock,
+    SideBlock,
   },
   setup() {
-    const events = ref([
-      {
-        date: null,
-        text: 'hello',
-        pictureName: '',
-      },
-    ])
+    // const events = ref([
+    //   {
+    //     date: '2022-02-25',
+    //     text: 'День початку',
+    //     pictures: [
+    //       'russian-warship',
+    //     ],
+    //   },
+    //   {
+    //     date: '2022-05-14',
+    //     text: 'Перемога Kalush на Evrovision-2022',
+    //     pictures: [
+    //       'eurovision-kalush',
+    //     ],
+    //   },
+    // ])
+    return {
+      events,
+    }
   },
 }
 </script>
@@ -58,15 +54,6 @@ export default {
 .layout {
   display: grid;
   grid-template-columns: 1fr 800px 1fr;
-}
-
-.side-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.side-block img{
-  width: 150px;
 }
 
 .events {

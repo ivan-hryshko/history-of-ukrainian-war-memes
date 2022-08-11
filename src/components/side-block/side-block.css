@@ -1,0 +1,9 @@
+.side-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-block img{
+  width: 150px;
+}

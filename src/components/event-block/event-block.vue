@@ -13,7 +13,9 @@
         </div>
       </div>
     </div>
-    <div >
+    <div
+      v-for="pictureName in pictures" :key="pictureName"
+    >
       <img :src="require(`@/assets/${pictureName}.jpeg`)" class="event-block__image" alt="">
     </div>
   </div>
@@ -43,9 +45,9 @@ export default {
     /**
      * Text
      */
-    pictureName: {
-      type: String,
-      default: '',
+    pictures: {
+      type: Array,
+      default: () => [],
     },
   },
   setup(props) {
