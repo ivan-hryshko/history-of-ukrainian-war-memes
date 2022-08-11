@@ -14,7 +14,7 @@ module.exports = {
     allowImportExportEverywhere: true,
     codeFrame: true,
   },
-  plugins: ['eslint-plugin-no-cyrillic-string'],
+  plugins: [],
   rules: {
     'prefer-destructuring': ['error', {
       'array': true,
@@ -60,7 +60,6 @@ module.exports = {
     'prefer-template': 'error',
     'template-curly-spacing': ['error', 'always'],
     'vue/valid-v-slot': ['error', { allowModifiers: true }],
-    'no-cyrillic-string/no-cyrillic-string': 'error',
     'no-console': [
       'warn',
       {
