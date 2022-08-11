@@ -1,8 +1,8 @@
 <template>
   <div>
     <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/war-memes">About</router-link>
+      <router-link to="/">Ukraine War Memes </router-link> |
+      <router-link to="/life-calendar">Life calendar</router-link>
     </nav>
     <router-view/>
   </div>

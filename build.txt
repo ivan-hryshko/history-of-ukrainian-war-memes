@@ -1,0 +1,11 @@
+cd Documents\GitHub\digital-trees-vue
+npm run serve
+cd digital-trees-vue
+npm install
+
+deploy to gh-pages
+
+npm run build
+git add dist -f
+git commit -m "adding dist"
+git subtree push --prefix dist origin gh-pages
