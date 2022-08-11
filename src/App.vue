@@ -47,6 +47,10 @@
 .header {
   overflow: hidden;
 }
+.header svg{
+  width: 24px;
+  transform: rotate(90deg);
+}
 
 nav {
   display: flex;
