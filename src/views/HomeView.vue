@@ -39,9 +39,6 @@ export default {
   setup() {
     const warStart = new Date("2022-02-24");
     const currentDate = new Date();
-    console.log('warStart :>> ', warStart);
-    console.log('warStart :>> ', warStart.getDay());
-    console.log('currentDate :>> ', currentDate.getDay());
 
     // get total seconds between the times
     const delta = Math.abs(currentDate - warStart) / 1000;
@@ -49,7 +46,6 @@ export default {
     // calculate (and subtract) whole days
     const days = Math.floor(delta / 86400);
 
-    console.log('days :>> ', days);
     return {
 
     }
