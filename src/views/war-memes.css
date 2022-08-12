@@ -1,8 +1,7 @@
 .layout {
   display: grid;
-  grid-template-columns: 1fr 800px 1fr;
+  grid-template-columns: 1fr 700px 1fr;
   overflow: hidden;
-
 }
 
 .events {
@@ -12,4 +11,30 @@
   padding-right: 24px;
   overflow: scroll;
   /* height: 100vh; */
+}
+
+@media (max-width:1000px)  {
+  /* smartphones, Android phones, landscape iPhone */
+  .side-block {
+    display: none;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    overflow: hidden;
+  }
+
+  .events {
+    display: flex;
+    flex-direction: column;
+    padding-right: 0px;
+  }
+
+  .event-block {
+    width: calc(100%-64px);
+    margin-left: 32px;
+    margin-right: 32px;
+    margin-bottom: 16px;
+  }
+
 }

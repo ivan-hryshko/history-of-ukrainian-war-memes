@@ -29,24 +29,13 @@ export default {
     SideBlock,
   },
   setup() {
-    // const events = ref([
-    //   {
-    //     date: '2022-02-25',
-    //     text: 'День початку',
-    //     pictures: [
-    //       'russian-warship',
-    //     ],
-    //   },
-    //   {
-    //     date: '2022-05-14',
-    //     text: 'Перемога Kalush на Evrovision-2022',
-    //     pictures: [
-    //       'eurovision-kalush',
-    //     ],
-    //   },
-    // ])
+    function helloWorld() {
+      console.log('HelloWorld');
+    }
+
     return {
       events,
+      helloWorld,
     }
   },
 }
