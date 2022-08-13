@@ -9,7 +9,7 @@
       </router-link>
       <div
         class="rotate-icon"
-        @click="helloWorld"
+        @click="changeEventsDirection"
       >
         <svg
           id="Layer_1"
@@ -28,6 +28,7 @@
               0,128.126 80.607,208.733 	"
             />
             <polygon
+              id="second"
               points="396.82,268.694 375.607,289.907 420,334.301 1.213,334.301 1.213,364.301 420,364.301 375.607,408.694
               396.82,429.907 477.427,349.301 	"
             />
@@ -38,6 +39,37 @@
     <router-view />
   </div>
 </template>
+
+<script>
+import { ref, watch, computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+export default {
+  name: 'HistiryOfUkrainianWarMemes',
+  components: {
+  },
+  setup() {
+    const router = useRouter()
+    const route = useRoute()
+    const eventsDirection = ref(DIRECTION_OLD)
+
+    const DIRECTION_OLD = 'from_old'
+    const DIRECTION_NEW = 'from_new'
+
+    // router.push({ query: { direction: DIRECTION_OLD } })
+
+    function changeEventsDirection() {
+      console.log('route.query :>> ', route.query);
+      eventsDirection.value = route.query.direction === DIRECTION_OLD ? DIRECTION_NEW : DIRECTION_OLD
+      router.push({ query: { direction: eventsDirection.value } })
+    }
+
+    return {
+      changeEventsDirection,
+    }
+  },
+}
+
+</script>
 
 <style>
 #app {
