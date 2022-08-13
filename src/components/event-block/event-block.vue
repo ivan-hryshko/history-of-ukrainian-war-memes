@@ -8,9 +8,9 @@
         <div class="event-block__date">
           {{ date }}
         </div>
-        <div class="event-block__text">
-          {{ text }}
-        </div>
+      </div>
+      <div class="event-block__text">
+        {{ text }}
       </div>
     </div>
     <div

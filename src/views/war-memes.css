@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 700px 1fr;
   overflow: hidden;
+  height: 100%;
 }
 
 .events {
@@ -10,7 +11,7 @@
   margin-bottom: 40px;
   padding-right: 24px;
   overflow: scroll;
-  /* height: 100vh; */
+  height: 100%;
 }
 
 @media (max-width:1000px)  {
