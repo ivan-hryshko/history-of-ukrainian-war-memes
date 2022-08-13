@@ -3,31 +3,71 @@
   {
     "date": "2022-02-24",
     "text": "День початку війни",
-    "pictures": ["russian-warship"]
+    "pictures": ["russian-warship.jpeg"]
   },
   {
     "date": "2022-04-12",
     "text": "Спіймали Медведчука",
-    "pictures": ["medvedchyk"]
+    "pictures": ["medvedchyk.jpeg"]
+  },
+  {
+    "date": "2022-04-13",
+    "text": "Марченко звертається до президентів",
+    "pictures": ["marchenko.jpeg"]
+  },
+  {
+    "date": "2022-06-30",
+    "text": "Передача о.Зміїний в якості жеста доброї волі",
+    "pictures": ["jest-dobroi-voly.png", "jest-dobroi-voly_2.jpeg"]
+  },
+  {
+    "date": "2022-06-22",
+    "text": "Початок збору коштів на 3 Байрактари (500 000 000 грн)",
+    "pictures": ["bayraktar_start.jpeg"]
+  },
+  {
+    "date": "2022-06-24",
+    "text": "Зібрано коштів на 4 Байрактари",
+    "pictures": ["bayraktar_end.jpeg"]
   },
   {
     "date": "2022-04-14",
     "text": "Знищення крейсеру москва",
-    "pictures": ["maskva-dead"]
+    "pictures": ["maskva-dead.jpeg"]
   },
   {
     "date": "2022-05-14",
-    "text": "Перемога Kalush на Evrovision-2022",
-    "pictures": ["eurovision-kalush"]
+    "text": "Перемога Kalush Orchestra на Evrovision-2022",
+    "pictures": ["eurovision-kalush.jpeg"]
   },
   {
     "date": "2022-07-01",
     "text": "на 5-му позачерговому засіданні в Парижі комітет ЮНЕСКО включив борщ — а саме «культуру приготування українського борщу» — до Списку нематеріальної культурної спадщини, що потребує негайної охорони.",
-    "pictures": ["borsсh"]
+    "pictures": ["borsсh.jpeg"]
+  },
+  {
+    "date": "2022-06-23",
+    "text": "Країни члени Європейського Союзу проголосували за надання Україні статусу країни кандидата на вступ до Європейського Союзу.",
+    "pictures": ["candidate_to_eu.jpeg"]
+  },
+  {
+    "date": "2022-05-09",
+    "text": "Президент США Джо Байден підписав закон про ленд-ліз",
+    "pictures": ["land_lease.jpeg"]
   },
   {
     "date": "2022-08-09",
     "text": "Порушення техніки безпеки в Криму",
-    "pictures": ["crimea-first-bavovna"]
+    "pictures": ["crimea-first-bavovna.jpeg"]
+  },
+  {
+    "date": "2022-04-30",
+    "text": "Анджеліна Джолі відвідала Україну",
+    "pictures": ["angelina_jolie.jpeg"]
+  },
+  {
+    "date": "2022-03-01",
+    "text": "Захоплення группи солдат поблизу Горлівки",
+    "pictures": ["chmonya.jpeg"]
   }
 ]

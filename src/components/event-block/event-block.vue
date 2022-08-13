@@ -18,7 +18,7 @@
       :key="pictureName"
     >
       <img
-        :src="require(`@/assets/${pictureName}.jpeg`)"
+        :src="require(`@/assets/${pictureName}`)"
         class="event-block__image"
         alt=""
       >
