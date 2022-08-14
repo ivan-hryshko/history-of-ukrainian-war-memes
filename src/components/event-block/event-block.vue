@@ -14,10 +14,11 @@
       </div>
     </div>
     <div
-      v-for="pictureName in pictures"
-      :key="pictureName"
+      class="event-block__images"
     >
       <img
+        v-for="pictureName in pictures"
+        :key="pictureName"
         :src="require(`@/assets/${pictureName}`)"
         class="event-block__image"
         alt=""

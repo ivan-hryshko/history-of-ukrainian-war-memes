@@ -21,6 +21,11 @@
     "pictures": ["jest-dobroi-voly.png", "jest-dobroi-voly_2.jpeg"]
   },
   {
+    "date": "2022-07-23",
+    "text": "Imagine Dragons стали амбасадоми платформи UNITED24",
+    "pictures": ["imagine_dragons.jpeg"]
+  },
+  {
     "date": "2022-06-22",
     "text": "Початок збору коштів на 3 Байрактари (500 000 000 грн)",
     "pictures": ["bayraktar_start.jpeg"]
@@ -29,6 +34,16 @@
     "date": "2022-06-24",
     "text": "Зібрано коштів на 4 Байрактари",
     "pictures": ["bayraktar_end.jpeg"]
+  },
+  {
+    "date": "2022-05-09",
+    "text": "В россії провели парад 'дня перемоги'",
+    "pictures": ["9_may.jpeg"]
+  },
+  {
+    "date": "2022-03-29",
+    "text": "Бавовна в Бєлгороді",
+    "pictures": ["belgorod.jpeg", "belgorod_3.png", "belgorod_4.webp"]
   },
   {
     "date": "2022-04-14",
