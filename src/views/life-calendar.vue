@@ -1,6 +1,38 @@
 <template>
   <div class="events-history_layout">
+    <div>
+
+    </div>
     <div class="events-history">
+      <div class="events-history__birthday">
+        <div>
+          Оберіть дату народження:
+        </div>
+        <input
+          v-model="birthdayDay"
+          type="number"
+          placeholder="День"
+        >
+        <input
+          v-model="birthdayMonth"
+          type="number"
+          placeholder="Місяць"
+        >
+        <input
+          v-model="birthdayYear"
+          type="number"
+          placeholder="Рік"
+        >
+      </div>
+      <!-- {{ birthday }} -->
+      <div class="events-history__from-birth">
+        <div>
+          Ви прожили тижнів: {{ weeksBirthToWarStart }}
+        </div>
+        <div>
+          Днів: {{ daysBirthForToday }}
+        </div>
+      </div>
       <div class="row-header">
         <div class="row-header__block-empty" />
         <div
@@ -22,94 +54,100 @@
         <div
           v-for="index in 56"
           :key="index"
+          :style="blockStyleOptions(indexRow, index)"
           class="events-history__block"
         >
           <!-- {{ index }} -->
+          <!-- {{((indexRow - 1) * 56) + index}} -->
         </div>
       </div>
     </div>
     <div class="control">
-      Other text
+      Control panel
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
 export default {
   name: 'LifeCalendar',
   components: {
   },
   setup() {
+    const route = useRoute()
+
     const warStart = new Date('2022-02-24')
     const currentDate = new Date()
+    const birthdayDay = ref(13)
+    const birthdayMonth = ref(10)
+    const birthdayYear = ref(1995)
+    const birthday = computed(() => new Date(`${birthdayYear.value}-${birthdayMonth.value}-${birthdayDay.value}`))
 
     // get total seconds between the times
-    const delta = Math.abs(currentDate - warStart) / 1000
+    // const delta = Math.abs(currentDate - warStart) / 1000
 
     // calculate (and subtract) whole days
-    const days = Math.floor(delta / 86400)
+    // const days = Math.floor(delta / 86400)
+
+    const weeksBirthToWarStart = computed(() => {
+      const delta = Math.abs(warStart - birthday.value) / 1000
+      return Math.floor(delta / 604800)
+      // 86400 - sec in 1 days
+    })
+
+    const weeksBirthForToday = computed(() => {
+      const delta = Math.abs(currentDate - birthday.value) / 1000
+      return Math.floor(delta / 604800)
+      // 86400 - sec in 1 days
+    })
+
+    const daysBirthForToday = computed(() => {
+      const delta = Math.abs(currentDate - birthday.value) / 1000
+      return Math.floor(delta / 86400)
+      // 86400 - sec in 1 days
+    })
+
+    function blockStyleOptions(indexRow, index) {
+      const weeksFromBirth = ((indexRow - 1) * 56) + index
+      if (weeksFromBirth === weeksBirthToWarStart.value) {
+        console.log('weeksFromBirth :>> ', weeksFromBirth);
+        console.log('weeksBirthToWarStart.value :>> ', weeksBirthToWarStart.value);
+      }
+      // console.log('weeksFromBirth :>> ', weeksFromBirth);
+      // console.log('weeksBirthToWarStart.value :>> ', weeksBirthToWarStart.value);
+      return {
+        'background-color': blockColorStyle(weeksFromBirth),
+      }
+    }
+
+    function blockColorStyle(weeksFromBirth) {
+      if (weeksFromBirth < weeksBirthToWarStart.value) {
+        return 'gray'
+      } else if (weeksFromBirth <= weeksBirthForToday.value) {
+        return 'red'
+      } else {
+        return 'white'
+      }
+    }
 
     return {
-
+      birthday,
+      birthdayDay,
+      birthdayMonth,
+      birthdayYear,
+      weeksBirthToWarStart,
+      daysBirthForToday,
+      weeksBirthForToday,
+      blockStyleOptions,
     }
   },
 }
 </script>
 
 <style>
-.events-history_layout {
-  display: flex;
-
-}
-
-.events-history {
-  /* display: grid;
-  grid-template-columns: repeat(7, 50px);
-  row-gap: 10px;
-  column-gap: 10px;
-  width: 600px; */
-  display: flex;
-  flex-direction: column;
-}
-
-.events-history__year {
-  width: 30px;
-}
-
-.events-history__row {
-  display: flex;
-}
-
-.row-header {
-  display: flex;
-  margin-left: 30px;
-}
-
-.row-header__block {
-  width: 16px;
-  margin-right: 2px;
-  background-color: white;
-  font-size: 12px;
-}
-
-.row-header__block-empty {
-  background-color: white;
-}
-
-.events-history__block {
-  width: 16px;
-  height: 16px;
-  border-radius: 8px;
-  margin-right: 2px;
-  background-color: gray;
-  border: 1px solid black ;
-  box-sizing: border-box;
-}
-
-.control {
-
-}
+@import './life-calendar.css';
 </style>

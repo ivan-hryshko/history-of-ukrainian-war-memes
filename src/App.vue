@@ -8,6 +8,7 @@
         Life calendar
       </router-link>
       <div
+        v-if="route.path==='/'"
         class="rotate-icon"
         @click="changeEventsDirection"
       >
@@ -64,6 +65,7 @@ export default {
     }
 
     return {
+      route,
       changeEventsDirection,
     }
   },
