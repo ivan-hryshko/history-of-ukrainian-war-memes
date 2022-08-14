@@ -3,10 +3,12 @@
     <div class="event-block__info">
       <div class="event-block__days">
         <div class="event-block__day">
+          <!-- <p>День:</p> -->
           {{ days }}
         </div>
         <div class="event-block__date">
-          {{ date }}
+          <!-- <p>Дата:</p> -->
+          {{ newDayFormat }}
         </div>
       </div>
       <div class="event-block__text">
@@ -28,7 +30,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 export default {
   name: 'EventBlock',
@@ -59,6 +61,9 @@ export default {
   setup(props) {
     const days = ref(0)
     const picturePath = ref(`src/assets/${props.pictureName}`)
+    const newDayFormat = computed(() => {
+      return `${props.date[8]}${props.date[9]}.${props.date[5]}${props.date[6]}.${props.date[0]}${props.date[1]}${props.date[2]}${props.date[3]}`
+    })
 
     const warStart = new Date('2022-02-24')
     console.log('warStart evetnt :>> ', warStart)
@@ -76,6 +81,7 @@ export default {
     return {
       days,
       picturePath,
+      newDayFormat,
     }
   },
 }
