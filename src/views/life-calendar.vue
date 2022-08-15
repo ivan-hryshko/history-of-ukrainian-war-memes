@@ -1,8 +1,8 @@
 <template>
   <div class="events-history_layout">
-    <div>
+    <!-- <div>
 
-    </div>
+    </div> -->
     <div class="events-history">
       <div class="events-history__birthday">
         <div>
@@ -12,16 +12,19 @@
           v-model="birthdayDay"
           type="number"
           placeholder="День"
+          class="events-history__birthday-day"
         >
         <input
           v-model="birthdayMonth"
           type="number"
           placeholder="Місяць"
+          class="events-history__birthday-month"
         >
         <input
           v-model="birthdayYear"
           type="number"
           placeholder="Рік"
+          class="events-history__birthday-year"
         >
       </div>
       <!-- {{ birthday }} -->
@@ -31,6 +34,9 @@
         </div>
         <div>
           Днів: {{ daysBirthForToday }}
+        </div>
+        <div>
+          Тижнів з початку року: {{ weekFromYearStartForBirth }}
         </div>
       </div>
       <div class="row-header">
@@ -49,21 +55,33 @@
         class="events-history__row"
       >
         <div class="events-history__year">
-          {{ indexRow }}
+          {{ birthdayYear + indexRow - 1 }} - {{ indexRow }}
         </div>
         <div
-          v-for="index in 56"
-          :key="index"
-          :style="blockStyleOptions(indexRow, index)"
+          v-for="week in 56"
+          :key="week"
+          :style="blockStyleOptions(indexRow, week)"
           class="events-history__block"
+          @click="selectDate(indexRow, week)"
         >
-          <!-- {{ index }} -->
-          <!-- {{((indexRow - 1) * 56) + index}} -->
+          <!-- {{ week }} -->
+          <!-- {{((indexRow - 1) * 56) + week}} -->
         </div>
       </div>
     </div>
     <div class="control">
-      Control panel
+      <div>
+        Control panel
+      </div>
+      <div>
+        Оберіть дату
+      </div>
+      <div v-if="selectedDate.row">
+        Обраний рік: {{ selectedDate.row }} - {{ selectedDate.row + birthdayYear - 1}}
+      </div>
+      <div v-if="selectedDate.week">
+        Обраний тиждень: {{ selectedDate.week }}
+      </div>
     </div>
   </div>
 </template>
@@ -86,6 +104,11 @@ export default {
     const secInWeek = secInDay * 7 // 604800
     const msInWeek = secInWeek * 1000 // 604 800 000
 
+    const selectedDate = ref({
+      row: null,
+      week: null,
+    })
+
     const warStart = new Date('2022-02-24')
     const currentDate = new Date()
     const birthdayDay = ref(13)
@@ -93,7 +116,7 @@ export default {
     const birthdayYear = ref(1995)
     const yearStart = ref(new Date(`${birthdayYear.value}-01-01`))
     const birthday = computed(() => new Date(`${birthdayYear.value}-${birthdayMonth.value}-${birthdayDay.value}`))
-    const msFromYearStartForBirth = computed(() => birthday.value - yearStart.value)
+    const weekFromYearStartForBirth = computed(() => Math.floor((birthday.value - yearStart.value) / msInWeek))
 
     // get total seconds between the times
     // const delta = Math.abs(currentDate - warStart) / 1000
@@ -116,8 +139,8 @@ export default {
       return Math.floor(delta / secInDay)
     })
 
-    function blockStyleOptions(indexRow, index) {
-      const weeksFromBirth = ((indexRow - 1) * 56) + index
+    function blockStyleOptions(indexRow, week) {
+      const weeksFromBirth = ((indexRow - 1) * 56) + week
       if (weeksFromBirth === weeksBirthToWarStart.value) {
         // console.log('weeksFromBirth :>> ', weeksFromBirth);
         // console.log('weeksBirthToWarStart.value :>> ', weeksBirthToWarStart.value);
@@ -130,30 +153,36 @@ export default {
     }
 
     function blockColorStyle(weeksFromBirth) {
-      if (weeksFromBirth < weeksBirthToWarStart.value) {
-        return 'gray'
-      } else if (weeksFromBirth <= weeksBirthForToday.value) {
-        return 'red'
+      if (weeksFromBirth < weekFromYearStartForBirth.value) {
+        return 'white'
+      } else if (weeksFromBirth < weeksBirthToWarStart.value + weekFromYearStartForBirth.value) {
+        return '#abced6'
+      } else if (weeksFromBirth <= weeksBirthForToday.value + weekFromYearStartForBirth.value) {
+        return '#c05353'
       } else {
         return 'white'
       }
     }
 
+    function selectDate(indexRow, week) {
+      selectedDate.value.row = indexRow
+      selectedDate.value.week = week
+    }
+
     onMounted(() => {
-      console.log('birthday.value :>> ', birthday.value);
-      console.log('yearStart.value :>> ', yearStart.value);
-      console.log('msFromYearStartForBirth.value :>> ', msFromYearStartForBirth.value);
-      console.log('msFromYearStartForBirth.value) :>> ', Math.floor(msFromYearStartForBirth.value / msInWeek));
     })
 
     return {
       birthday,
+      selectedDate,
       birthdayDay,
       birthdayMonth,
       birthdayYear,
       weeksBirthToWarStart,
       daysBirthForToday,
       weeksBirthForToday,
+      weekFromYearStartForBirth,
+      selectDate,
       blockStyleOptions,
     }
   },
