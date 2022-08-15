@@ -54,22 +54,35 @@
         :key="indexRow"
         class="events-history__row"
       >
-        <div class="events-history__year">
-          {{ birthdayYear + indexRow - 1 }} - {{ indexRow }}
+        <div class="events-history__row-wrap">
+          <div class="events-history__year">
+            {{ birthdayYear + indexRow - 1 }} - {{ indexRow }}
+          </div>
+          <div
+            v-for="week in 56"
+            :key="week"
+            :style="blockStyleOptions(indexRow, week)"
+            class="events-history__block"
+            @click="selectDate(indexRow, week)"
+          >
+            <!-- {{ week }} -->
+            <!-- {{((indexRow - 1) * 56) + week}} -->
+          </div>
         </div>
-        <div
-          v-for="week in 56"
-          :key="week"
-          :style="blockStyleOptions(indexRow, week)"
-          class="events-history__block"
-          @click="selectDate(indexRow, week)"
-        >
-          <!-- {{ week }} -->
-          <!-- {{((indexRow - 1) * 56) + week}} -->
+        <div v-if="indexRow === selectedDate.row" class="events-history__selected-week">
+          <div>
+            Обраний рік: {{ selectedDate.row }} - {{ selectedDate.row + birthdayYear - 1}}
+          </div>
+          <div>
+            Обраний тиждень: {{ selectedDate.week }}
+          </div>
         </div>
       </div>
     </div>
-    <div class="control">
+    <div
+      v-if="false"
+      class="control"
+    >
       <div>
         Control panel
       </div>
