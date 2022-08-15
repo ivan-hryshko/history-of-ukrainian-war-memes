@@ -70,7 +70,7 @@
 
 <script>
 // @ is an alias to /src
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 export default {
@@ -80,12 +80,20 @@ export default {
   setup() {
     const route = useRoute()
 
+    const secInMinute = 60
+    const secInHour = secInMinute * 60 // 3600
+    const secInDay = secInHour * 24 // 86400
+    const secInWeek = secInDay * 7 // 604800
+    const msInWeek = secInWeek * 1000 // 604 800 000
+
     const warStart = new Date('2022-02-24')
     const currentDate = new Date()
     const birthdayDay = ref(13)
     const birthdayMonth = ref(10)
     const birthdayYear = ref(1995)
+    const yearStart = ref(new Date(`${birthdayYear.value}-01-01`))
     const birthday = computed(() => new Date(`${birthdayYear.value}-${birthdayMonth.value}-${birthdayDay.value}`))
+    const msFromYearStartForBirth = computed(() => birthday.value - yearStart.value)
 
     // get total seconds between the times
     // const delta = Math.abs(currentDate - warStart) / 1000
@@ -95,27 +103,24 @@ export default {
 
     const weeksBirthToWarStart = computed(() => {
       const delta = Math.abs(warStart - birthday.value) / 1000
-      return Math.floor(delta / 604800)
-      // 86400 - sec in 1 days
+      return Math.floor(delta / secInWeek)
     })
 
     const weeksBirthForToday = computed(() => {
       const delta = Math.abs(currentDate - birthday.value) / 1000
-      return Math.floor(delta / 604800)
-      // 86400 - sec in 1 days
+      return Math.floor(delta / secInWeek)
     })
 
     const daysBirthForToday = computed(() => {
       const delta = Math.abs(currentDate - birthday.value) / 1000
-      return Math.floor(delta / 86400)
-      // 86400 - sec in 1 days
+      return Math.floor(delta / secInDay)
     })
 
     function blockStyleOptions(indexRow, index) {
       const weeksFromBirth = ((indexRow - 1) * 56) + index
       if (weeksFromBirth === weeksBirthToWarStart.value) {
-        console.log('weeksFromBirth :>> ', weeksFromBirth);
-        console.log('weeksBirthToWarStart.value :>> ', weeksBirthToWarStart.value);
+        // console.log('weeksFromBirth :>> ', weeksFromBirth);
+        // console.log('weeksBirthToWarStart.value :>> ', weeksBirthToWarStart.value);
       }
       // console.log('weeksFromBirth :>> ', weeksFromBirth);
       // console.log('weeksBirthToWarStart.value :>> ', weeksBirthToWarStart.value);
@@ -133,6 +138,13 @@ export default {
         return 'white'
       }
     }
+
+    onMounted(() => {
+      console.log('birthday.value :>> ', birthday.value);
+      console.log('yearStart.value :>> ', yearStart.value);
+      console.log('msFromYearStartForBirth.value :>> ', msFromYearStartForBirth.value);
+      console.log('msFromYearStartForBirth.value) :>> ', Math.floor(msFromYearStartForBirth.value / msInWeek));
+    })
 
     return {
       birthday,
