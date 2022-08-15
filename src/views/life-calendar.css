@@ -30,11 +30,11 @@
 }
 
 .events-history__birthday-day {
-  width: 32px;
+  width: 64px;
 }
 
 .events-history__birthday-month {
-  width: 32px;
+  width: 64px;
 }
 
 .events-history__birthday-year {
@@ -73,7 +73,8 @@
 .events-history__selected-week {
   display: flex;
   height: 20px;
-  width: 100%;
+  width: 555px;
+  min-width: 555px;
   border: 1px solid black;
 }
 
@@ -88,6 +89,7 @@
 
 .row-header__block {
   width: 16px;
+  min-width: 16px;
   margin-right: 2px;
   background-color: white;
   font-size: 12px;
