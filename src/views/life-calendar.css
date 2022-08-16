@@ -76,6 +76,7 @@
   width: 555px;
   min-width: 555px;
   border: 1px solid black;
+  margin: 8px 0px;
 }
 
 .events-history__selected-week > * {
