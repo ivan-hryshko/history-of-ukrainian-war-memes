@@ -54,8 +54,8 @@
 .events-history__year {
   display: flex;
   justify-content: flex-start;
-  width: 80px;
-  min-width: 80px;
+  width: 92px;
+  min-width: 92px;
   margin-right: 8px;
 }
 
