@@ -2,12 +2,13 @@
 .event-block {
   display: flex;
   flex-direction: column;
-  border: 2px solid #000000;
+  /* border: 2px solid #000000; */
   justify-content: flex-start;
   width: 600px;
   border-radius: 8px;
   padding: 10px;
   margin-bottom: 16px;
+  background-color: #e9e8e8;
 }
 
 .event-block__info {
@@ -20,16 +21,18 @@
 
 .event-block__days {
   display: flex;
+  height: 100%;
 }
 
 .event-block__day {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-height: 60px;
+  height: 100%;
+  /* max-height: 60px; */
   padding: 16px;
   border-radius: 8px;
-  background-color: rgb(110, 110, 110);
+  background-color: rgb(150, 149, 149);
   margin-right: 8px;
   color: white;
   box-sizing: border-box;
@@ -40,10 +43,11 @@
   align-items: center;
   justify-content: center;
   width: 120px;
-  max-height: 60px;
+  height: 100%;
+  /* max-height: 60px; */
   padding: 16px;
   border-radius: 8px;
-  background-color: rgb(110, 110, 110);
+  background-color: rgb(150, 149, 149);
   margin-right: 8px;
   box-sizing: border-box;
   color: white;
@@ -54,7 +58,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  background-color: #e9e8e8;
+  background-color: #cacaca;
   color: black;
   padding: 16px;
 }
