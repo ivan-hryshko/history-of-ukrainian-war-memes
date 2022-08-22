@@ -1,18 +1,17 @@
 .events-history_layout {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: auto auto;
   margin-top: 60px;
   overflow: scroll;
+  background-image: url(@/assets/background.png);
+  background-repeat: repeat-y;
 }
 
 .events-history {
-  /* display: grid;
-  grid-template-columns: repeat(7, 50px);
-  row-gap: 10px;
-  column-gap: 10px;
-  width: 600px; */
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto;
+  row-gap: 2px;
+
   margin-left: 32px;
   overflow: scroll;
 }
@@ -60,23 +59,24 @@
 }
 
 .events-history__row {
-  display: flex;
-  flex-direction: column;
   width: 100%;
 }
 
 .events-history__row-wrap {
-  display: flex;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 92px repeat(56, 20px);
+  grid-auto-flow: column;
 }
 
 .events-history__selected-week {
   display: flex;
-  height: 20px;
-  width: 555px;
   min-width: 555px;
-  border: 1px solid black;
-  margin: 8px 0px;
+  /* border: 1px solid black; */
+  margin: 8px 8px;
+}
+
+.events-history__selected-week .events {
+  margin-top: 0px;
 }
 
 .events-history__selected-week > * {
@@ -92,7 +92,6 @@
   width: 16px;
   min-width: 16px;
   margin-right: 2px;
-  background-color: white;
   font-size: 12px;
 }
 
@@ -120,6 +119,7 @@
 .control {
   color: #abced6;
   color: #518d9b;
+  color: #c9c9c9;
   color: #c05353;
 
   display: flex;

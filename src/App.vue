@@ -74,13 +74,17 @@ export default {
 </script>
 
 <style>
+@import '@/css/normalize.css';
+@import url('http://fonts.cdnfonts.com/css/montserrat');
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   overflow: hidden;
+  font-weight: 500;
 }
 
 .header {
@@ -98,7 +102,8 @@ nav {
   position: fixed;
   margin: auto;
   width: 100%;
-  background-color: white;
+  background-color: #000000;
+  opacity: 0.2;
 }
 
 nav a {
@@ -125,7 +130,7 @@ nav a.router-link-exact-active {
 }
 
 .rotate-icon svg:hover polygon {
-  fill: black;
+  fill: white;
 }
 
 img {
@@ -133,5 +138,4 @@ img {
   margin: 0px;
 }
 
-@import '@/css/normalize.css';
 </style>

@@ -1,6 +1,8 @@
 <template>
   <div class="layout">
-    <SideBlock />
+    <!-- <div class="layout__images">
+      <img src="@/assets/background.png" alt="">
+    </div> -->
     <div class="events">
       <eventBlock
         v-for="event in events"
@@ -10,16 +12,12 @@
         :pictures="event.pictures"
       />
     </div>
-    <SideBlock
-      position="right"
-    />
   </div>
 </template>
 
 <script>
 import { ref, computed, watch } from 'vue'
 import eventBlock from '@/components/event-block'
-import SideBlock from '@/components/side-block'
 import events from '@/json/events.json'
 import { useRouter, useRoute } from 'vue-router'
 
@@ -27,7 +25,6 @@ export default {
   name: 'WarMemes',
   components: {
     eventBlock,
-    SideBlock,
   },
   setup() {
     const router = useRouter()

@@ -39,14 +39,16 @@
           Тижнів з початку року: {{ weekFromYearStartForBirth }}
         </div>
       </div>
-      <div class="row-header">
-        <div class="row-header__block-empty" />
-        <div
-          v-for="week in 56"
-          :key="week"
-          class="row-header__block"
-        >
-          {{ week }}
+      <div class="events-history__row">
+        <div class="events-history__row-wrap">
+          <div class="events-history__year" />
+          <div
+            v-for="week in 56"
+            :key="week"
+            class="row-header__block"
+          >
+            {{ week }}
+          </div>
         </div>
       </div>
       <div
@@ -70,14 +72,23 @@
           </div>
         </div>
         <div v-if="indexRow === selectedDate.row" class="events-history__selected-week">
+          <!-- <div>
+            Обраний рік: {{ selectedDate.row + birthdayYear - 1}},
+          </div>
           <div>
-            Обраний рік: {{ selectedDate.row }} - {{ selectedDate.row + birthdayYear - 1}}
+            Вам років: {{ selectedDate.row }},
           </div>
           <div>
             Обраний тиждень: {{ selectedDate.week }}
-          </div>
-          <div>
-
+          </div> -->
+          <div class="events">
+            <eventBlock
+              v-for="event in eventsSelected"
+              :key="event.date + event.text"
+              :text="event.text"
+              :date="event.date"
+              :pictures="event.pictures"
+            />
           </div>
         </div>
       </div>
@@ -93,7 +104,7 @@
         Оберіть дату
       </div>
       <div v-if="selectedDate.row">
-        Обраний рік: {{ selectedDate.row }} - {{ selectedDate.row + birthdayYear - 1}}
+        Обраний рік: {{ selectedDate.row + birthdayYear - 1}}, Вам років: {{ selectedDate.row }}
       </div>
       <div v-if="selectedDate.week">
         Обраний тиждень: {{ selectedDate.week }}
@@ -106,10 +117,13 @@
 // @ is an alias to /src
 import { ref, computed, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import eventBlock from '@/components/event-block'
+import events from '@/json/events.json'
 
 export default {
   name: 'LifeCalendar',
   components: {
+    eventBlock,
   },
   setup() {
     const route = useRoute()
@@ -126,6 +140,7 @@ export default {
     })
 
     const warStart = new Date('2022-02-24')
+    const startOf2022 = new Date('2022-01-01')
     const currentDate = new Date()
     const birthdayDay = ref(13)
     const birthdayMonth = ref(10)
@@ -133,6 +148,20 @@ export default {
     const yearStart = ref(new Date(`${birthdayYear.value}-01-01`))
     const birthday = computed(() => new Date(`${birthdayYear.value}-${birthdayMonth.value}-${birthdayDay.value}`))
     const weekFromYearStartForBirth = computed(() => Math.floor((birthday.value - yearStart.value) / msInWeek))
+    const seventyYearInWeek = 70 * 56
+
+    const eventsSelected = computed(() => {
+      return events.filter(event => {
+        const eventDate = new Date(event.date)
+        console.log('eventDate :>> ', eventDate);
+        const eventWeekFrom2022 = Math.floor((eventDate - startOf2022) / msInWeek)
+        console.log('eventWeekFrom2022 :>> ', eventWeekFrom2022);
+        console.log('selectedDate.value.week :>> ', selectedDate.value.week);
+        const result = eventWeekFrom2022 === selectedDate.value.week
+        console.log('result :>> ', result);
+        return result
+      })
+    })
 
     // get total seconds between the times
     // const delta = Math.abs(currentDate - warStart) / 1000
@@ -175,6 +204,8 @@ export default {
         return '#abced6'
       } else if (weeksFromBirth <= weeksBirthForToday.value + weekFromYearStartForBirth.value) {
         return '#c05353'
+      } else if (weeksFromBirth > seventyYearInWeek) {
+        return '#c9c9c9'
       } else {
         return 'white'
       }
@@ -189,6 +220,8 @@ export default {
     })
 
     return {
+      events,
+      eventsSelected,
       birthday,
       selectedDate,
       birthdayDay,
