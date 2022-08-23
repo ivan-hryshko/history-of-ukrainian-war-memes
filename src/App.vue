@@ -49,6 +49,7 @@
       <img
         src="@/assets/povernis_givim_logo.png"
         class="povernis-givim-logo"
+        @click="routeToPovernisGivim"
       >
       <div>
 
@@ -81,8 +82,13 @@ export default {
       router.push({ query: { direction: eventsDirection.value } })
     }
 
+    function routeToPovernisGivim() {
+      window.location.href = 'https://dou.ua/forums/topic/39602/';
+    }
+
     return {
       route,
+      routeToPovernisGivim,
       changeEventsDirection,
     }
   },
