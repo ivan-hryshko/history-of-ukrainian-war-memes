@@ -5,6 +5,7 @@
   height: 100%;
   background-image: url(@/assets/background.png);
   background-repeat: repeat-y;
+  background-size: 100vw;
 }
 
 /* .layout__images {
