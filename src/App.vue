@@ -1,9 +1,16 @@
 <template>
-  <div class="header">
+  <div class="content">
     <nav>
+      <div class="header__bakground">
+
+      </div>
       <router-link to="/">
         Ukraine War Memes
-      </router-link> |
+      </router-link>
+      <div class="event-block__divider-wrapped">
+        <div class="header__divider">
+        </div>
+      </div>
       <router-link to="/life-calendar">
         Life calendar
       </router-link>
@@ -35,6 +42,9 @@
             />
           </g>
         </svg>
+      </div>
+      <div>
+
       </div>
     </nav>
     <router-view />
@@ -87,42 +97,62 @@ export default {
   font-weight: 500;
 }
 
-.header {
+.content {
   overflow: hidden;
-}
-.header svg{
-
 }
 
 nav {
   display: flex;
   justify-content: center;
+  align-content: center;
   z-index: 100;
-  padding: 16px;
   position: fixed;
   margin: auto;
   width: 100%;
-  background-color: #000000;
+  height: 100px;
+  /* background-color: #000000; */
+}
+
+.header__bakground {
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
   opacity: 0.2;
+  z-index: -1;
 }
 
 nav a {
   font-weight: bold;
   color: #2c3e50;
   margin: 0px 8px;
+  font-size: 30px;
+  align-self: center;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  /* color: #42b983; */
+}
+
+.header__divider {
+  width: 4px;
+  height: 50px;
+  left: 699px;
+  top: 58px;
+  background: #D9D9D9;
+  border-radius: 2px;
 }
 
 .rotate-icon {
   cursor: pointer;
+  align-self: center;
 }
 
 .rotate-icon svg {
-  width: 24px;
   transform: rotate(90deg);
+  height: 30px;
 }
 
 .rotate-icon svg polygon {

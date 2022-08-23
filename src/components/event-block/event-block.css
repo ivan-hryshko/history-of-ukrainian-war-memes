@@ -30,14 +30,14 @@
 }
 
 .event-block__days {
-  display: grid;
-  grid-template-columns: 150px auto 1fr;
+  display: flex;
+  justify-content: space-around;
   text-align: right;
   height: 40px;
   background-color: #FFFFFF;
   opacity: 0.8;
-  width: 250px;
-  justify-content: space-between;
+  width: 250px !important;
+  min-width: 250px;
 }
 
 .event-block__day-block {
@@ -47,7 +47,6 @@
 
 .event-block__day-wrapped {
   display: flex;
-  margin-left: 5px;
 }
 
 .event-block__day {
@@ -78,7 +77,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 12px;
-  width: 150px;
+  /* width: 150px; */
 }
 
 .event-block__divider-wrapped {
