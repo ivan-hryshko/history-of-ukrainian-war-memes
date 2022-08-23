@@ -1,5 +1,8 @@
 <template>
   <div class="content">
+    <div class="header-top">
+      Задонитити можеш туть
+    </div>
     <nav>
       <div class="header__bakground">
 
@@ -43,6 +46,10 @@
           </g>
         </svg>
       </div>
+      <img
+        src="@/assets/povernis_givim_logo.png"
+        class="povernis-givim-logo"
+      >
       <div>
 
       </div>
@@ -86,86 +93,5 @@ export default {
 <style>
 @import '@/css/normalize.css';
 @import url('http://fonts.cdnfonts.com/css/montserrat');
-
-#app {
-  font-family: 'Montserrat', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  overflow: hidden;
-  font-weight: 500;
-}
-
-.content {
-  overflow: hidden;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  z-index: 100;
-  position: fixed;
-  margin: auto;
-  width: 100%;
-  height: 100px;
-  /* background-color: #000000; */
-}
-
-.header__bakground {
-  height: 100px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: black;
-  opacity: 0.2;
-  z-index: -1;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-  margin: 0px 8px;
-  font-size: 30px;
-  align-self: center;
-}
-
-nav a.router-link-exact-active {
-  /* color: #42b983; */
-}
-
-.header__divider {
-  width: 4px;
-  height: 50px;
-  left: 699px;
-  top: 58px;
-  background: #D9D9D9;
-  border-radius: 2px;
-}
-
-.rotate-icon {
-  cursor: pointer;
-  align-self: center;
-}
-
-.rotate-icon svg {
-  transform: rotate(90deg);
-  height: 30px;
-}
-
-.rotate-icon svg polygon {
-  fill: grey;
-}
-
-.rotate-icon svg:hover polygon {
-  fill: white;
-}
-
-img {
-  display: block;
-  margin: 0px;
-}
-
+@import "./App.css";
 </style>
