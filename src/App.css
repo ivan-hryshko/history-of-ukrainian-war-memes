@@ -112,7 +112,6 @@ img {
   margin-right: 100px;
   cursor: pointer;
   margin-left: 10px;
-  margin-right: 10px;
 }
 
 .povernis-givim-logo:hover {
@@ -122,6 +121,8 @@ img {
 @media (max-width:1300px)  {
   .povernis-givim-logo {
     position: static;
+    margin-right: 10px;
+
   }
 
   nav a {
@@ -132,10 +133,12 @@ img {
 @media (max-width:765px)  {
   nav a {
     font-size: 15px;
-  }
+    margin: 0px 10px;
+}
 
   .povernis-givim-logo {
     height: 50px;
+    margin-right: 10px;
   }
 
   .header-top {
