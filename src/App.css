@@ -32,7 +32,7 @@
 
 nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-content: center;
   z-index: 100;
   position: fixed;
@@ -41,6 +41,10 @@ nav {
   height: 100px;
   margin-top: 40px;
   /* background-color: #000000; */
+}
+
+.header__pages {
+  display: flex;
 }
 
 
@@ -103,11 +107,30 @@ img {
   align-self: center;
   justify-self: flex-end;
   position: absolute;
-  right: 100px;
+  right: 0px;
   top: 11px;
+  margin-right: 100px;
   cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .povernis-givim-logo:hover {
   transform: scale(1.1);
+}
+
+@media (max-width:1300px)  {
+  .povernis-givim-logo {
+    position: static;
+  }
+
+  nav a {
+    font-size: 25px;
+  }
+}
+
+@media (max-width:765px)  {
+  nav a {
+    font-size: 20px;
+  }
 }

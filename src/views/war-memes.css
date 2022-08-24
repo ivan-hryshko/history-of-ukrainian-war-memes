@@ -47,17 +47,17 @@
     margin-left: 32px;
     margin-right: 32px;
     margin-bottom: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .event-block__info {
-    grid-template-columns: 1fr;
-    row-gap: 8px;
+    flex-direction: column-reverse;
   }
 
   .event-block__days {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 8px;
+    align-self: flex-end;
+    margin-bottom: 10px;
   }
 
   .event-block__day {
@@ -65,18 +65,8 @@
     margin-right: 0px;
   }
 
-  .event-block__day::before {
-    content: "День: ";
-    margin-right: 4px;
-  }
-
   .event-block__date {
     width: auto;
     margin-right: 0px;
-  }
-
-  .event-block__date::before {
-    content: "Дата: ";
-    margin-right: 4px;
   }
 }
