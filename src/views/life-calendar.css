@@ -1,13 +1,13 @@
 .events-history_layout {
   display: grid;
   grid-template-columns: auto auto;
-  margin-top: 60px;
   overflow: scroll;
   background-image: url(@/assets/background.png);
   background-repeat: repeat-y;
 }
 
 .events-history {
+  margin-top: 180px;
   display: grid;
   grid-template-rows: auto;
   row-gap: 2px;

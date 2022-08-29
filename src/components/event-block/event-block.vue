@@ -33,16 +33,23 @@
         </div>
       </div>
     </div>
-    <div
-      class="event-block__images"
-    >
-      <img
-        v-for="pictureName in pictures"
-        :key="pictureName"
-        :src="require(`@/assets/memes/${pictureName}`)"
-        class="event-block__image"
-        alt=""
+    <div class="event-block__images-wrapped">
+      <!-- <img src="@/assets/icons/arror-slider.svg" alt=""> -->
+      <div
+        class="event-block__images"
       >
+        <img
+          v-for="pictureName in pictures"
+          :key="pictureName"
+          :src="require(`@/assets/memes/${pictureName}`)"
+          class="event-block__image"
+          alt=""
+        >
+      </div>
+      <!-- <img
+        src="@/assets/icons/arror-slider.svg"
+        class="event-block__arrow-right"
+      > -->
     </div>
   </div>
 </template>

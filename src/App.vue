@@ -86,7 +86,7 @@ export default {
     }
 
     function routeToPovernisGivim() {
-      window.location.href = 'https://dou.ua/forums/topic/39602/';
+      window.location.href = 'https://savelife.in.ua/donate/#donate-army-card-monthly';
     }
 
     return {
