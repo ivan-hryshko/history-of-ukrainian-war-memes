@@ -5,7 +5,6 @@
     </div>
     <nav>
       <div class="header__bakground">
-
       </div>
       <div class="header__pages">
         <router-link to="/">
@@ -47,16 +46,12 @@
             </g>
           </svg>
         </div>
-
       </div>
       <img
         src="@/assets/povernis_givim_logo.png"
         class="povernis-givim-logo"
         @click="routeToPovernisGivim"
       >
-      <div>
-
-      </div>
     </nav>
     <router-view />
   </div>
