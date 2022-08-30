@@ -5,8 +5,8 @@
     </div> -->
     <div class="events">
       <eventBlock
-        v-for="event in events"
-        :key="event.date"
+        v-for="event, index in events"
+        :key="event.date+index"
         :text="event.text"
         :date="event.date"
         :pictures="event.pictures"

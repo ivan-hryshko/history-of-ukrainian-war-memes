@@ -34,22 +34,37 @@
       </div>
     </div>
     <div class="event-block__images-wrapped">
-      <!-- <img src="@/assets/icons/arror-slider.svg" alt=""> -->
+      <div
+        class="event-block__arrow-wrapped"
+        @click="previousPicture"
+      >
+        <img
+          v-if="pictures.length > 1"
+          src="@/assets/icons/arror-slider.svg"
+          class="event-block__arrow event-block__arrow-left"
+        >
+      </div>
       <div
         class="event-block__images"
       >
+        <!-- v-for="pictureName, index in pictures"
+        :key="pictureName" -->
         <img
-          v-for="pictureName in pictures"
-          :key="pictureName"
-          :src="require(`@/assets/memes/${pictureName}`)"
+          :src="require(`@/assets/memes/${pictures[currentPictureIndex]}`)"
           class="event-block__image"
-          alt=""
+        >
+        <!-- :style="imageStyleOptions(index)" -->
+      </div>
+      <div
+        class="event-block__arrow-wrapped"
+        @click="nextPicture"
+      >
+        <img
+          v-if="pictures.length > 1"
+          src="@/assets/icons/arror-slider.svg"
+          class="event-block__arrow event-block__arrow-right"
         >
       </div>
-      <!-- <img
-        src="@/assets/icons/arror-slider.svg"
-        class="event-block__arrow-right"
-      > -->
     </div>
   </div>
 </template>
@@ -86,9 +101,29 @@ export default {
   setup(props) {
     const days = ref(0)
     const picturePath = ref(`src/assets/memes/${props.pictureName}`)
+    const currentPictureIndex = ref(0)
     const newDayFormat = computed(() => {
       return `${props.date[8]}${props.date[9]}.${props.date[5]}${props.date[6]}.${props.date[0]}${props.date[1]}${props.date[2]}${props.date[3]}`
     })
+    const imageStyleOptions = computed((index) => {
+      return {
+        'display': index === currentPictureIndex.value ? 'show' : 'block',
+      }
+    })
+
+    function nextPicture() {
+      const isIndexOverflow = currentPictureIndex.value + 1 >= props.pictures.length
+      console.log('isIndexOverflow :>> ', isIndexOverflow);
+      currentPictureIndex.value = isIndexOverflow ? 0 : currentPictureIndex.value + 1
+      console.log('currentPictureIndex.value :>> ', currentPictureIndex.value);
+    }
+
+    function previousPicture() {
+      const isIndexOverflow = currentPictureIndex.value - 1 < 0
+      console.log('isIndexOverflow :>> ', isIndexOverflow);
+      currentPictureIndex.value = isIndexOverflow ? props.pictures.length - 1 : currentPictureIndex.value - 1
+      console.log('currentPictureIndex.value :>> ', currentPictureIndex.value);
+    }
 
     const warStart = new Date('2022-02-24')
     // console.log('warStart evetnt :>> ', warStart)
@@ -107,6 +142,10 @@ export default {
       days,
       picturePath,
       newDayFormat,
+      currentPictureIndex,
+      imageStyleOptions,
+      nextPicture,
+      previousPicture,
     }
   },
 }

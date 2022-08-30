@@ -125,10 +125,33 @@
 .event-block__images-wrapped:nth-child(2) {
 }
 
+.event-block__arrow-wrapped {
+  display: flex;
+  align-items: center;
+}
+
+.event-block__arrow {
+  margin-top: 40px;
+}
+
+.event-block__arrow:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  /* box-shadow: 10px 5px 5px black; */
+}
+
+.event-block__arrow-left {
+  padding-right: 30px;
+}
+
 .event-block__arrow-right {
+  padding-right: 30px;
   transform: rotate(180deg);
   border: 1px soled red;
-  
+}
+
+.event-block__arrow-right:hover {
+  transform: scale(1.2) rotate(180deg);
 }
 
 .event-block__images {
