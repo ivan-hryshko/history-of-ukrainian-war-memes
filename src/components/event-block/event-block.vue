@@ -39,7 +39,7 @@
         @click="previousPicture"
       >
         <img
-          v-if="pictures.length > 1"
+          v-if="isShowArrow(pictures)"
           src="@/assets/icons/arror-slider.svg"
           class="event-block__arrow event-block__arrow-left"
         >
@@ -60,7 +60,7 @@
         @click="nextPicture"
       >
         <img
-          v-if="pictures.length > 1"
+          v-if="isShowArrow(pictures)"
           src="@/assets/icons/arror-slider.svg"
           class="event-block__arrow event-block__arrow-right"
         >
@@ -125,6 +125,10 @@ export default {
       console.log('currentPictureIndex.value :>> ', currentPictureIndex.value);
     }
 
+    function isShowArrow(pictures) {
+      return pictures.length > 1
+    }
+
     const warStart = new Date('2022-02-24')
     // console.log('warStart evetnt :>> ', warStart)
     const eventDate = new Date(props.date)
@@ -145,6 +149,7 @@ export default {
       currentPictureIndex,
       imageStyleOptions,
       nextPicture,
+      isShowArrow,
       previousPicture,
     }
   },
