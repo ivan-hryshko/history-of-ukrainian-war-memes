@@ -1,0 +1,239 @@
+
+.event-block {
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid #000000; */
+  justify-content: flex-start;
+  width: 900px;
+  padding-bottom: 16px;
+  padding-bottom: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-bottom: 100px;
+}
+
+.event-block:first-child {
+  margin-top: 100px;
+}
+
+.event-block__info {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
+  width: 100%;
+  margin-bottom: 8px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.event-block__text-dots {
+  width: 5px;
+  margin-right: 20px;
+  margin-top: 14px;
+  align-self:flex-start;
+}
+
+.event-block__days {
+  display: flex;
+  justify-content: space-around;
+  text-align: right;
+  height: 40px;
+  background-color: #FFFFFF;
+  opacity: 0.8;
+  width: 250px !important;
+  min-width: 250px;
+}
+
+.event-block__day-block {
+  display: flex;
+  justify-content: center;
+}
+
+.event-block__day-wrapped {
+  display: flex;
+}
+
+.event-block__day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 30px;
+}
+
+.event-block__day-text {
+  text-align: start;
+  align-self: center;
+  margin-left: 5px;
+  font-size: 12px;
+  width: 40px;
+
+}
+
+.event-block__date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* max-height: 60px; */
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 12px;
+  /* width: 150px; */
+}
+
+.event-block__divider-wrapped {
+  align-self: center;
+}
+
+.event-block__divider {
+  width: 2px;
+  height: 25px;
+  left: 699px;
+  top: 58px;
+  background: #D9D9D9;
+  border-radius: 2px;
+}
+
+.event-block__text-block {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.event-block__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: start;
+  border-radius: 8px;
+  color: black;
+  font-size: 25px;
+  line-height: 37px;
+  padding-right: 45px;
+}
+.event-block__images-wrapped {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+}
+
+.event-block__images-wrapped:nth-child(2) {
+}
+
+.event-block__arrow-wrapped {
+  display: flex;
+  align-items: center;
+}
+
+.event-block__arrow-wrapped:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.event-block__arrow {
+}
+
+.event-block__arrow:hover {
+  /* box-shadow: 10px 5px 5px black; */
+}
+
+.event-block__arrow-left {
+  padding-right: 30px;
+}
+
+.event-block__arrow-right {
+  padding-right: 30px;
+  transform: rotate(180deg);
+  border: 1px soled red;
+}
+
+.event-block__arrow-right:hover {
+  transform: rotate(180deg);
+}
+
+.event-block__images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: 510px; */
+  /* width: 100%; */
+}
+
+.event-block__image:last-child  {
+  margin-bottom: 0px;
+}
+
+.event-block__image {
+  max-height: 700px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+@media (max-width:1000px)  {
+  .event-block {
+    width: auto;
+    margin-left: 32px;
+    margin-right: 32px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 50px;
+}
+
+  .event-block__info {
+    flex-direction: column-reverse;
+    margin-bottom: 10px;
+  }
+
+  .event-block__days {
+    align-self: center;
+    margin-bottom: 10px;
+  }
+
+  .event-block__day {
+    width: auto;
+    margin-right: 0px;
+  }
+
+  .event-block__date {
+    width: auto;
+    margin-right: 0px;
+  }
+
+  .event-block__text {
+    font-size: 20px;
+    padding-right: 0px;
+  }
+
+  .event-block__images {
+    width: 300px;
+  }
+
+  .event-block__arrow-wrapped {
+  }
+
+  .event-block__arrow {
+    width: 10px;
+  }
+
+  .event-block__arrow:hover {
+    transform: scale(1);
+  }
+
+  .event-block__arrow-left {
+    padding-right: 10px;
+  }
+
+  .event-block__arrow-right {
+    padding-right: 10px;
+  }
+
+  .event-block__arrow-right:hover {
+    transform: scale(1) rotate(180deg)
+  }
+}
