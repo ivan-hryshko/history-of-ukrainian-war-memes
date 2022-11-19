@@ -27,8 +27,9 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch, computed } from 'vue'
 import eventBlock from '@/components/event-block'
+import { useRouter, useRoute } from 'vue-router'
 
 export default {
   name: 'EventSlider',
@@ -46,23 +47,50 @@ export default {
   },
   setup(props) {
     const sortedEvents = ref([])
+    const route = useRoute()
+
+    const routerDirection = computed(() => route.query.direction)
+
+    // watch(() => props.events, (newValue, oldValue) => {
+    //   console.log('events');
+    //   console.log('oldValue :>> ', oldValue);
+    //   console.log('newValue :>> ', newValue);
+    //   // events = events.reverse()
+    // })
+
+    watch(() => routerDirection.value, (newValue, oldValue) => {
+      console.log('oldValue :>> ', oldValue);
+      console.log('newValue :>> ', newValue);
+      if (newValue === 'from_old') {
+        let { events } = props
+        events = events.reverse()
+        fillSortedEvents(events)
+      } else {
+        fillSortedEvents(props.events)
+      }
+    }, { deep: true })
+
+    const someEvents = computed(() => {
+      console.log('props.events some :>> ', props.events);
+      return props.events
+    })
 
     onMounted(() => {
       initialization()
     })
 
     function initialization() {
-      fillSortedEvents()
+      fillSortedEvents(props.events)
     }
 
-    function fillSortedEvents() {
+    function fillSortedEvents(events) {
       const sorted = [{
         events: [],
         isOpen: true,
       }]
       console.log('sorted :>> ', sorted);
       let sortedIndex = 0
-      props.events.forEach(event => {
+      events.forEach(event => {
         if (sorted[sortedIndex].events.length === 10) {
           sorted.push({
             events: [],

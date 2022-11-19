@@ -29,7 +29,7 @@ export default {
     const DIRECTION_OLD = 'from_old'
     const DIRECTION_NEW = 'from_new'
 
-    const someVal = computed(() => route.query.direction)
+    const routerDirection = computed(() => route.query.direction)
 
     // router.push({ query: { direction: DIRECTION_OLD } })
 
@@ -38,11 +38,11 @@ export default {
       return route.query.direction
     })
 
-    watch(() => someVal.value, (newValue, oldValue) => {
-      console.log('oldValue :>> ', oldValue);
-      console.log('newValue :>> ', newValue);
-      events = events.reverse()
-    })
+    // watch(() => routerDirection.value, (newValue, oldValue) => {
+    //   console.log('oldValue :>> ', oldValue);
+    //   console.log('newValue :>> ', newValue);
+    //   events = events.reverse()
+    // }, { deep: true })
 
     function helloWorld() {
       console.log('HelloWorld');
