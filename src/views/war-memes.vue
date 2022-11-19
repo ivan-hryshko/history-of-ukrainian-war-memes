@@ -4,12 +4,8 @@
       <img src="@/assets/background.png" alt="">
     </div> -->
     <div class="events">
-      <eventBlock
-        v-for="event, index in events"
-        :key="event.date+index"
-        :text="event.text"
-        :date="event.date"
-        :pictures="event.pictures"
+      <EventSlider
+        :events="events"
       />
     </div>
   </div>
@@ -17,14 +13,14 @@
 
 <script>
 import { ref, computed, watch } from 'vue'
-import eventBlock from '@/components/event-block'
+import EventSlider from '@/components/event-slider'
 import events from '@/json/events.json'
 import { useRouter, useRoute } from 'vue-router'
 
 export default {
   name: 'WarMemes',
   components: {
-    eventBlock,
+    EventSlider,
   },
   setup() {
     const router = useRouter()
@@ -33,7 +29,7 @@ export default {
     const DIRECTION_OLD = 'from_old'
     const DIRECTION_NEW = 'from_new'
 
-    const someVal = computed(() => route.query.direction)
+    const routerDirection = computed(() => route.query.direction)
 
     // router.push({ query: { direction: DIRECTION_OLD } })
 
@@ -42,11 +38,11 @@ export default {
       return route.query.direction
     })
 
-    watch(() => someVal.value, (newValue, oldValue) => {
-      console.log('oldValue :>> ', oldValue);
-      console.log('newValue :>> ', newValue);
-      events = events.reverse()
-    })
+    // watch(() => routerDirection.value, (newValue, oldValue) => {
+    //   console.log('oldValue :>> ', oldValue);
+    //   console.log('newValue :>> ', newValue);
+    //   events = events.reverse()
+    // }, { deep: true })
 
     function helloWorld() {
       console.log('HelloWorld');
