@@ -7,20 +7,12 @@
       <EventSlider
         :events="events"
       />
-      <eventBlock
-        v-for="event, index in events"
-        :key="event.date+index"
-        :text="event.text"
-        :date="event.date"
-        :pictures="event.pictures"
-      />
     </div>
   </div>
 </template>
 
 <script>
 import { ref, computed, watch } from 'vue'
-import eventBlock from '@/components/event-block'
 import EventSlider from '@/components/event-slider'
 import events from '@/json/events.json'
 import { useRouter, useRoute } from 'vue-router'
@@ -28,7 +20,6 @@ import { useRouter, useRoute } from 'vue-router'
 export default {
   name: 'WarMemes',
   components: {
-    eventBlock,
     EventSlider,
   },
   setup() {
