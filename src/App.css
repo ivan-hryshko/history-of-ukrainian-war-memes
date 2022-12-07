@@ -30,7 +30,7 @@ nav {
 .header__pages {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   justify-content: space-between;
   width: 100%;
   padding: 0px 20px;
@@ -47,8 +47,8 @@ nav {
 }
 
 .header__pages .burger-menu img {
-  width: 30px;
-  height: 30px;
+  width: 22px;
+  height: 22px;
 }
 
 .header__pages .month {
@@ -57,9 +57,10 @@ nav {
   background: #FFF59E;
   border-radius: 16px;
   padding: 10px;
+  height: 37px;
 }
 
-.header__pages .month .arrow{
+.header__pages .month .arrow {
   margin-right: 8px;
 }
 
@@ -160,5 +161,14 @@ img {
   .header-top {
     font-size: 15px;
   }
+
+  .header__pages .month .month-text {
+    font-size: 12px;
+  }
+
+  .header__pages {
+    padding: 0px 10px;
+  }
+
 
 }

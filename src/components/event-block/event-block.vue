@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="month">
-          Березень
+          {{ eventMonthName }}
         </div>
       </div>
 
@@ -61,6 +61,7 @@
 
 <script>
 import { ref, computed } from 'vue'
+import { MONTH_NAME } from '@/constants/month'
 
 export default {
   name: 'EventBlock',
@@ -92,15 +93,29 @@ export default {
     const days = ref(0)
     const picturePath = ref(`src/assets/memes/${props.pictureName}`)
     const currentPictureIndex = ref(0)
+
     const newDayFormat = computed(() => {
       return `${props.date[8]}${props.date[9]}.${props.date[5]}${props.date[6]}.${props.date[0]}${props.date[1]}${props.date[2]}${props.date[3]}`
     })
+
     const eventDay = computed(() => {
       if (props.date[8] !== '0') {
         return `${props.date[8]}${props.date[9]}`
       }
       return props.date[9]
     })
+
+    const eventMonth = computed(() => {
+      if (props.date[8] !== '0') {
+        return Number(`${props.date[5]}${props.date[6]}`)
+      }
+      return Number(props.date[6])
+    })
+
+    const eventMonthName = computed(() => {
+      return MONTH_NAME[eventMonth.value - 1]
+    })
+
     const imageStyleOptions = computed((index) => {
       return {
         'display': index === currentPictureIndex.value ? 'show' : 'block',
@@ -145,6 +160,7 @@ export default {
       eventDay,
       currentPictureIndex,
       imageStyleOptions,
+      eventMonthName,
       nextPicture,
       isShowArrow,
       previousPicture,
