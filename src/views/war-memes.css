@@ -3,9 +3,7 @@
   grid-template-columns: 1fr;
   overflow: hidden;
   height: 100%;
-  background-image: url(@/assets/background.png);
-  background-repeat: repeat-y;
-  background-size: 100vw;
+  background-color: #D6EDFE;
 }
 
 /* .layout__images {
@@ -16,7 +14,6 @@
 
 .events {
   justify-self: center;
-  margin-top: 100px;
   margin-bottom: 40px;
   padding-right: 24px;
   overflow: scroll;

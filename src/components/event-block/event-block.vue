@@ -1,49 +1,43 @@
 <template>
   <div class="event-block">
-    <div class="event-block__info">
-      <div class="event-block__text-block">
-        <img
-          src="@/assets/dots_by.svg"
-          class="event-block__text-dots"
-        >
-        <div class="event-block__text">
-          {{ text }}
-        </div>
-      </div>
-      <div class="event-block__days">
-        <div class="event-block__date">
-          <!-- <p>Дата:</p> -->
-          {{ newDayFormat }}
-        </div>
-        <div class="event-block__divider-wrapped">
-          <div class="event-block__divider">
 
+    <div class="event-block__days">
+      <div class="event-block__date">
+        <div class="day-wrapped">
+          <div class="date__icon">
+            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect y="1.53845" width="21" height="2.30746" fill="#A1A1A1"/>
+              <line x1="3.45447" y1="1.74817" x2="3.45447" y2="9.56059e-05" stroke="#A1A1A1" stroke-width="2"/>
+              <line x1="7.90918" y1="1.74817" x2="7.90918" y2="9.56059e-05" stroke="#A1A1A1" stroke-width="2"/>
+              <line x1="12.3638" y1="1.74817" x2="12.3638" y2="9.56059e-05" stroke="#A1A1A1" stroke-width="2"/>
+              <line x1="16.8182" y1="1.74817" x2="16.8182" y2="9.56059e-05" stroke="#A1A1A1" stroke-width="2"/>
+              <rect x="0.5" y="2.27136" width="20" height="18.2288" stroke="#A1A1A1"/>
+            </svg>
+          </div>
+          <div class="day">
+            <!-- Дата: -->
+            {{ eventDay }}
           </div>
         </div>
-        <div class="event-block__day-block">
-          <div class="event-block__day-wrapped">
-            <div class="event-block__day">
-              <!-- <p>День:</p> -->
-              {{ days }}
-            </div>
-            <div class="event-block__day-text">
-              день війни
-            </div>
+        <div class="month">
+          Березень
+        </div>
+      </div>
+
+      <div class="event-block__day-block">
+        <div class="event-block__day-wrapped">
+          <div class="event-block__day">
+            <!-- День -->
+            {{ days }}
+          </div>
+          <div class="event-block__day-text">
+            день війни
           </div>
         </div>
       </div>
     </div>
+
     <div class="event-block__images-wrapped">
-      <div
-        class="event-block__arrow-wrapped"
-        @click="previousPicture"
-      >
-        <img
-          v-if="isShowArrow(pictures)"
-          src="@/assets/icons/arror-slider.svg"
-          class="event-block__arrow event-block__arrow-left"
-        >
-      </div>
       <div
         class="event-block__images"
       >
@@ -55,15 +49,11 @@
         >
         <!-- :style="imageStyleOptions(index)" -->
       </div>
-      <div
-        class="event-block__arrow-wrapped"
-        @click="nextPicture"
-      >
-        <img
-          v-if="isShowArrow(pictures)"
-          src="@/assets/icons/arror-slider.svg"
-          class="event-block__arrow event-block__arrow-right"
-        >
+    </div>
+
+    <div class="event-block__text-block">
+      <div class="event-block__text">
+        {{ text }}
       </div>
     </div>
   </div>
@@ -104,6 +94,12 @@ export default {
     const currentPictureIndex = ref(0)
     const newDayFormat = computed(() => {
       return `${props.date[8]}${props.date[9]}.${props.date[5]}${props.date[6]}.${props.date[0]}${props.date[1]}${props.date[2]}${props.date[3]}`
+    })
+    const eventDay = computed(() => {
+      if (props.date[8] !== '0') {
+        return `${props.date[8]}${props.date[9]}`
+      }
+      return props.date[9]
     })
     const imageStyleOptions = computed((index) => {
       return {
@@ -146,6 +142,7 @@ export default {
       days,
       picturePath,
       newDayFormat,
+      eventDay,
       currentPictureIndex,
       imageStyleOptions,
       nextPicture,

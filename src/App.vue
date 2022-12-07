@@ -1,23 +1,24 @@
 <template>
   <div class="content">
-    <div class="header-top">
-      Задонитити можеш туть
-    </div>
     <nav>
       <div class="header__bakground">
       </div>
       <div class="header__pages">
-        <router-link to="/">
-          Ukraine War Memes
-        </router-link>
-        <div class="event-block__divider-wrapped">
-          <div class="header__divider">
+        <!-- <router-link to="/life-calendar">
+          Life calendar
+        </router-link> -->
+        <div class="burger-menu">
+          <img src="@/assets/icons/burger-icon.png" alt="">
+        </div>
+        <div class="month">
+          <div class="arrow">
+            <img src="@/assets/icons/arrow.png" alt="">
+          </div>
+          <div class="month-text">
+            Березень 2022
           </div>
         </div>
-        <router-link to="/life-calendar">
-          Life calendar
-        </router-link>
-        <div
+        <!-- <div
           v-if="route.path==='/'"
           class="rotate-icon"
           @click="changeEventsDirection"
@@ -45,13 +46,15 @@
               />
             </g>
           </svg>
+        </div> -->
+        <div>
+          <img
+            src="@/assets/povernis_givim_logo.png"
+            class="povernis-givim-logo"
+            @click="routeToPovernisGivim"
+          >
         </div>
       </div>
-      <img
-        src="@/assets/povernis_givim_logo.png"
-        class="povernis-givim-logo"
-        @click="routeToPovernisGivim"
-      >
     </nav>
     <router-view />
   </div>

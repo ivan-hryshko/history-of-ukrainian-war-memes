@@ -1,10 +1,12 @@
 .show-more {
-  background-color: #FFB137;
+  background-color: #2680c0;
   padding: 16px;
+  margin: 0px 20px;
   border-radius: 8px;
   color: white;
   cursor: pointer;
-  width: 100%;
+  margin-left: 20px;
+  width: calc(100% -40px);
 }
 
 .show-more:hover {

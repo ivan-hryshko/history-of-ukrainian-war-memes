@@ -19,7 +19,7 @@
           class="show-more"
           @click="showNextPack(index)"
         >
-          Show more
+          Наступні
         </div>
       </div>
     </div>
