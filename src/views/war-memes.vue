@@ -70,7 +70,7 @@ export default {
 }
 </script>
 
-<style>
-@import './war-memes.css';
+<style lang="scss">
+@import './war-memes.scss';
 
 </style>

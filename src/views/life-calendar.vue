@@ -238,6 +238,6 @@ export default {
 }
 </script>
 
-<style>
-@import './life-calendar.css';
+<style lang="scss">
+@import './life-calendar.scss';
 </style>

@@ -1,9 +1,11 @@
+@import '@/style/const.scss';
+
 .layout {
   display: grid;
   grid-template-columns: 1fr;
   overflow: hidden;
   height: 100%;
-  background-color: #D6EDFE;
+  background-color: $background-color;
 }
 
 /* .layout__images {
