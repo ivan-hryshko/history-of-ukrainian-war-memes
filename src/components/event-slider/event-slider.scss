@@ -17,3 +17,10 @@
   background-color: $main-color;
   color: black;
 }
+
+@media (max-width:1000px)  {
+  .show-more {
+    margin: 0 20px;
+  }
+
+}
