@@ -17,11 +17,15 @@
           :pictures="event.pictures"
         />
         <div
-          v-if="isShowMoreButton(index)"
-          class="show-more"
-          @click="showNextPack(index)"
+          class="show-more-wrapped"
         >
-          Наступні
+          <div
+            v-if="isShowMoreButton(index)"
+            class="show-more"
+            @click="showNextPack(index)"
+          >
+            Наступні
+          </div>
         </div>
       </div>
     </div>

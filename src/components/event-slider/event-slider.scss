@@ -18,9 +18,20 @@
   color: black;
 }
 
-@media (max-width:1000px)  {
-  .show-more {
-    margin: 0 20px;
-  }
+.event-slider {
+  width: 100%;
+}
 
+.pack {
+  width: 100%;
+}
+
+.show-more-wrapped {
+  width: 100%;
+}
+
+@media (max-width:1000px)  {
+  .show-more-wrapped {
+    padding: 0 20px;
+  }
 }
