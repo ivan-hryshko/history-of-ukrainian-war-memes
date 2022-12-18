@@ -2,10 +2,12 @@
   <div class="event-slider">
     <div
       v-for="eventPack, index in sortedEvents"
+      class="pack"
       :key="index"
     >
       <div
         v-if="eventPack.isOpen"
+        class="events"
       >
         <eventBlock
           v-for="event, index in eventPack.events"
@@ -122,6 +124,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 @import './event-slider';
 </style>

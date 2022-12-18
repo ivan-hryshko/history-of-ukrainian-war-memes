@@ -97,8 +97,8 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss">
 @import '@/css/normalize.css';
 @import url('http://fonts.cdnfonts.com/css/montserrat');
-@import "./App.css";
+@import "./App.scss";
 </style>

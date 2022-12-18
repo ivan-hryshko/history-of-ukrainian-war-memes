@@ -1,3 +1,4 @@
+@import '@/style/const.scss';
 
 .event-block {
   display: flex;
@@ -5,14 +6,10 @@
   /* border: 2px solid #000000; */
   justify-content: flex-start;
   width: 500px;
-  background-color: #FFF59E;
+  background-color: $main-color;
   border-radius: 16px;
   box-sizing: border-box;
   margin-bottom: 100px;
-}
-
-.event-block:first-child {
-  margin-top: 100px;
 }
 
 .event-block__info {

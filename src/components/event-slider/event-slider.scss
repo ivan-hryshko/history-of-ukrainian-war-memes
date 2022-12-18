@@ -1,0 +1,19 @@
+@import '@/style/const.scss';
+
+.event-slider:first-child {
+  margin-top: 100px;
+}
+
+.show-more {
+  background-color: #2680c0;
+  padding: 16px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  width: calc(100%);
+}
+
+.show-more:hover {
+  background-color: $main-color;
+  color: black;
+}
