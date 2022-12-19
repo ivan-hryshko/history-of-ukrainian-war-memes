@@ -117,7 +117,7 @@
   },
   {
     "date": "2022-08-31",
-    "text": "Одним менше",
+    "text": "Вмер Горбачов. Одним менше",
     "pictures": ["gorbachev.jpeg"]
   },
   {
@@ -166,8 +166,38 @@
     "pictures": ["medvedchuk-obmin.jpeg"]
   },
   {
+    "date": "2022-12-01",
+    "text": "Беар Гріллс відвідав Київ",
+    "pictures": ["bear-grylls-kyiv.jpeg"]
+  },
+  {
+    "date": "2022-10-10",
+    "text": "Пішохідний міст встояв після обстрілів",
+    "pictures": ["pishohidnii-mist.jpeg"]
+  },
+  {
+    "date": "2022-12-19",
+    "text": "На Софійській площі у Києві запалили головну ялинку країни",
+    "pictures": ["yalinka-kyiv.jpeg"]
+  },
+  {
+    "date": "2022-11-23",
+    "text": "Литовці завершили збір на 3 морські дрони",
+    "pictures": ["litva-sea-drones.jpeg"]
+  },
+  {
+    "date": "2022-11-11",
+    "text": "Бенксі опублікував фото свого графіті на зруйнованому домі в Бородянці Київської області.",
+    "pictures": ["benksi-pictures.jpeg"]
+  },
+  {
+    "date": "2022-11-09",
+    "text": "Пристегайте паски безпеки",
+    "pictures": ["strmoysov.jpeg"]
+  },
+  {
     "date": "2022-11-11",
     "text": "Звільнення Херсону",
-    "pictures": ["free-kherson.webp"]
+    "pictures": ["free-kherson.jpeg"]
   }
 ]
