@@ -134,5 +134,40 @@
     "date": "2022-08-27",
     "text": "Міністерство оборони нагадало про міфічне створіння 'Бавонятком'",
     "pictures": ["bavovnyatko.jpeg"]
+  },
+  {
+    "date": "2022-10-08",
+    "text": "В честь бавовни на мосту Укрпошта випускає марку",
+    "pictures": ["crimea-bridge.jpeg"]
+  },
+  {
+    "date": "2022-09-21",
+    "text": "Початок мобілізації на росії",
+    "pictures": ["mobilizacija-v-rossii.jpeg"]
+  },
+  {
+    "date": "2022-09-20",
+    "text": "Відкриття перших трьох McDonald's в Києві на лівому березі",
+    "pictures": ["mcdonalds.jpeg"]
+  },
+  {
+    "date": "2022-09-10",
+    "text": "Ізюм в котлі",
+    "pictures": ["izum-kotel.jpeg"]
+  },
+  {
+    "date": "2022-09-14",
+    "text": "Зеленський відвідав звільнений Ізюм",
+    "pictures": ["zelenskii-izum.jpeg"]
+  },
+  {
+    "date": "2022-09-22",
+    "text": "Україна повернула з полону 215 військових в обмін на Медведчука",
+    "pictures": ["medvedchuk-obmin.jpeg"]
+  },
+  {
+    "date": "2022-11-11",
+    "text": "Звільнення Херсону",
+    "pictures": ["free-kherson.webp"]
   }
 ]

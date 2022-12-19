@@ -106,7 +106,7 @@ export default {
     })
 
     const eventMonth = computed(() => {
-      if (props.date[8] !== '0') {
+      if (props.date[5] !== '0') {
         return Number(`${props.date[5]}${props.date[6]}`)
       }
       return Number(props.date[6])
