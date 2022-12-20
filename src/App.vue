@@ -10,43 +10,45 @@
         <div class="burger-menu">
           <img src="@/assets/icons/burger-icon.png" alt="">
         </div>
-        <div class="month">
-          <div class="arrow">
-            <img src="@/assets/icons/arrow.png" alt="">
+        <div class="central-part">
+          <div class="month">
+            <div class="arrow">
+              <img src="@/assets/icons/arrow.png" alt="">
+            </div>
+            <div class="month-text">
+              Березень 2022
+            </div>
           </div>
-          <div class="month-text">
-            Березень 2022
+          <div
+            v-if="route.path==='/'"
+            class="rotate-icon"
+            @click="changeEventsDirection"
+          >
+            <svg
+              id="Layer_1"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 477.427 477.427"
+              style="enable-background:new 0 0 477.427 477.427;"
+              xml:space="preserve"
+            >
+              <g>
+                <polygon
+                  points="101.82,187.52 57.673,143.372 476.213,143.372 476.213,113.372 57.181,113.372 101.82,68.733 80.607,47.519
+                  0,128.126 80.607,208.733 	"
+                />
+                <polygon
+                  id="second"
+                  points="396.82,268.694 375.607,289.907 420,334.301 1.213,334.301 1.213,364.301 420,364.301 375.607,408.694
+                  396.82,429.907 477.427,349.301 	"
+                />
+              </g>
+            </svg>
           </div>
         </div>
-        <!-- <div
-          v-if="route.path==='/'"
-          class="rotate-icon"
-          @click="changeEventsDirection"
-        >
-          <svg
-            id="Layer_1"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px"
-            y="0px"
-            viewBox="0 0 477.427 477.427"
-            style="enable-background:new 0 0 477.427 477.427;"
-            xml:space="preserve"
-          >
-            <g>
-              <polygon
-                points="101.82,187.52 57.673,143.372 476.213,143.372 476.213,113.372 57.181,113.372 101.82,68.733 80.607,47.519
-                0,128.126 80.607,208.733 	"
-              />
-              <polygon
-                id="second"
-                points="396.82,268.694 375.607,289.907 420,334.301 1.213,334.301 1.213,364.301 420,364.301 375.607,408.694
-                396.82,429.907 477.427,349.301 	"
-              />
-            </g>
-          </svg>
-        </div> -->
         <div>
           <img
             src="@/assets/povernis_givim_logo.png"
