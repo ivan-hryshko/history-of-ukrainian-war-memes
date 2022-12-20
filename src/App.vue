@@ -12,12 +12,19 @@
         </div>
         <div class="central-part">
           <div class="month">
-            <div class="arrow">
-              <img src="@/assets/icons/arrow.png" alt="">
+            <div class="month-head">
+              <div class="arrow">
+                <img src="@/assets/icons/arrow.png" alt="">
+              </div>
+              <div class="month-text">
+                Березень 2022
+              </div>
             </div>
-            <div class="month-text">
-              Березень 2022
-            </div>
+            <ul class="month-list">
+              <li v-for="month, index in MONTH_NAME" :key="index">
+                {{ month }}
+              </li>
+            </ul>
           </div>
           <div
             v-if="route.path==='/'"
@@ -65,6 +72,8 @@
 <script>
 import { ref, watch, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { MONTH_NAME } from '@/constants/month'
+
 export default {
   name: 'HistiryOfUkrainianWarMemes',
   components: {
@@ -91,6 +100,7 @@ export default {
 
     return {
       route,
+      MONTH_NAME,
       routeToPovernisGivim,
       changeEventsDirection,
     }

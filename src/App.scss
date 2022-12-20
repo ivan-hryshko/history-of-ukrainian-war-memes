@@ -15,6 +15,10 @@
   width: 100%;
 }
 
+li {
+  list-style-type: none;
+}
+
 .content {
   overflow: hidden;
   width: 100%;
@@ -61,11 +65,32 @@ nav {
 
   .month {
     display: flex;
+    flex-direction: column;
     align-items: center;
     background: $main-color;
     border-radius: 16px;
-    padding: 14px;
-    height: 37px;
+    position: relative;
+
+    .month-head {
+      display: flex;
+      padding: 14px;
+      height: 37px;
+    }
+
+    .month-list {
+      position: absolute;
+      top: 50px;
+      background-color: white;
+      width: 100%;
+      padding: 14px;
+      height: 300px;
+      overflow-y: scroll;
+      border-radius: 16px;
+
+      li {
+        margin-bottom: 25px;
+      }
+    }
 
     .arrow {
       margin-right: 10px;
