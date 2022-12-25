@@ -231,6 +231,16 @@
     "pictures": ["zelenskii-bahmyt.jpeg"]
   },
   {
+    "date": "2022-12-21",
+    "text": "Зеленський відвідав США",
+    "pictures": ["zlenskii-usa.jpeg"]
+  },
+  {
+    "date": "2022-12-22",
+    "text": "Зі святом",
+    "pictures": ["100000.jpeg"]
+  },
+  {
     "date": "2022-11-11",
     "text": "Звільнення Херсону",
     "pictures": ["free-kherson.jpeg"]
