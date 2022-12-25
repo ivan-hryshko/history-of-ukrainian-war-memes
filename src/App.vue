@@ -12,16 +12,26 @@
         </div>
         <div class="central-part">
           <div class="month">
-            <div class="month-head">
+            <div
+              class="month-head"
+              @click="handleShowMonthList"
+            >
               <div class="arrow">
                 <img src="@/assets/icons/arrow.png" alt="">
               </div>
               <div class="month-text">
-                Березень 2022
+                {{ currentMonth }}
               </div>
             </div>
-            <ul class="month-list">
-              <li v-for="month, index in MONTH_NAME" :key="index">
+            <ul
+              v-if="isShowMonthList"
+              class="month-list"
+            >
+              <li
+                v-for="month, index in generatedMonthList"
+                :key="index"
+                @click="changeMonth(month)"
+              >
                 {{ month }}
               </li>
             </ul>
@@ -75,16 +85,36 @@ import { useRouter, useRoute } from 'vue-router'
 import { MONTH_NAME } from '@/constants/month'
 
 export default {
-  name: 'HistiryOfUkrainianWarMemes',
+  name: 'HistoryOfUkrainianWarMemes',
   components: {
   },
   setup() {
     const router = useRouter()
     const route = useRoute()
     const eventsDirection = ref(DIRECTION_OLD)
+    const isShowMonthList = ref(false)
+    const currentMonth = ref(`${MONTH_NAME[1]} 2022`)
+    const currentDate = ref(new Date)
 
     const DIRECTION_OLD = 'from_old'
     const DIRECTION_NEW = 'from_new'
+
+    console.log('currentDate.value :>> ', currentDate.value);
+    console.log('currentDate.value :>> ', currentDate.value.getFullYear());
+    console.log('currentDate.value :>> ', currentDate.value.getMonth());
+    const generatedMonthList = computed(() => {
+      const newList = []
+      const startYear = 2022
+      for (let year = startYear; year <= currentDate.value.getFullYear(); year++) {
+        for (let monthIndex = 0; monthIndex < MONTH_NAME.length; monthIndex++) {
+          if (MONTH_NAME[monthIndex] !== MONTH_NAME[0] && year !== '2022') {
+            newList.push(`${MONTH_NAME[monthIndex]} ${year}`)
+          }
+        }
+      }
+
+      return newList
+    })
 
     // router.push({ query: { direction: DIRECTION_OLD } })
 
@@ -98,9 +128,23 @@ export default {
       window.location.href = 'https://savelife.in.ua/donate/#donate-army-card-monthly';
     }
 
+    function handleShowMonthList() {
+      isShowMonthList.value = !isShowMonthList.value
+    }
+
+    function changeMonth(month) {
+      currentMonth.value = month
+      isShowMonthList.value = false
+    }
+
     return {
       route,
       MONTH_NAME,
+      currentMonth,
+      isShowMonthList,
+      generatedMonthList,
+      changeMonth,
+      handleShowMonthList,
       routeToPovernisGivim,
       changeEventsDirection,
     }

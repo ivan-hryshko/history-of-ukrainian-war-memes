@@ -70,11 +70,15 @@ nav {
     background: $main-color;
     border-radius: 16px;
     position: relative;
+    width: 160px;
+    font-size: 14px;
 
     .month-head {
       display: flex;
+      align-items: center;
       padding: 14px;
       height: 37px;
+      cursor: pointer;
     }
 
     .month-list {
@@ -86,6 +90,7 @@ nav {
       height: 300px;
       overflow-y: scroll;
       border-radius: 16px;
+      cursor: pointer;
 
       li {
         margin-bottom: 25px;
@@ -97,11 +102,6 @@ nav {
     }
   }
 }
-
-
-
-
-
 
 .header__bakground {
   height: 80px;
