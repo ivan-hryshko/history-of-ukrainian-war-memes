@@ -7,7 +7,10 @@
         <!-- <router-link to="/life-calendar">
           Life calendar
         </router-link> -->
-        <div class="burger-menu">
+        <div
+          class="burger-menu"
+          @click="showSidebar"
+        >
           <img src="@/assets/icons/burger-icon.png" alt="">
         </div>
         <div class="central-part">
@@ -75,6 +78,11 @@
         </div>
       </div>
     </nav>
+    <div
+      class="sidebar"
+    >
+
+    </div>
     <router-view />
   </div>
 </template>
@@ -93,6 +101,7 @@ export default {
     const route = useRoute()
     const eventsDirection = ref(DIRECTION_OLD)
     const isShowMonthList = ref(false)
+    const isShowSidebar = ref(false)
     const currentMonth = ref(`${MONTH_NAME[1]} 2022`)
     const currentDate = ref(new Date)
 
@@ -137,13 +146,19 @@ export default {
       isShowMonthList.value = false
     }
 
+    function showSidebar() {
+      isShowSidebar.value = true
+    }
+
     return {
       route,
       MONTH_NAME,
       currentMonth,
       isShowMonthList,
+      isShowSidebar,
       generatedMonthList,
       changeMonth,
+      showSidebar,
       handleShowMonthList,
       routeToPovernisGivim,
       changeEventsDirection,
