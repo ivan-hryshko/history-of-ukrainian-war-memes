@@ -44,7 +44,7 @@
         <!-- v-for="pictureName, index in pictures"
         :key="pictureName" -->
         <img
-          :src="require(`@/assets/memes/${pictures[currentPictureIndex]}`)"
+          :src="getImagePath()"
           class="event-block__image"
         >
         <!-- :style="imageStyleOptions(index)" -->
@@ -140,6 +140,15 @@ export default {
       return pictures.length > 1
     }
 
+    function getImagePath() {
+      try {
+        const path = require(`@/assets/memes/${props.pictures[currentPictureIndex.value]}`)
+        return require(`@/assets/memes/${props.pictures[currentPictureIndex.value]}`)
+      } catch (error) {
+        console.log('error :>> ', error);
+      }
+    }
+
     const warStart = new Date('2022-02-24')
     // console.log('warStart evetnt :>> ', warStart)
     const eventDate = new Date(props.date)
@@ -161,6 +170,7 @@ export default {
       currentPictureIndex,
       imageStyleOptions,
       eventMonthName,
+      getImagePath,
       nextPicture,
       isShowArrow,
       previousPicture,
