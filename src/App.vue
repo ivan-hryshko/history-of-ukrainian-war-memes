@@ -116,11 +116,20 @@ export default {
       const startYear = 2022
       for (let year = startYear; year <= currentDate.value.getFullYear(); year++) {
         for (let monthIndex = 0; monthIndex < MONTH_NAME.length; monthIndex++) {
-          if (MONTH_NAME[monthIndex] !== MONTH_NAME[0] && year !== '2022') {
+          const notMoreThanCurrentMonth = monthIndex <= currentDate.value.getMonth()
+
+          if (year === currentDate.value.getFullYear()) {
+            if (notMoreThanCurrentMonth) {
+              newList.push(`${MONTH_NAME[monthIndex]} ${year}`)
+            }
+          } else {
             newList.push(`${MONTH_NAME[monthIndex]} ${year}`)
           }
         }
       }
+
+      // delete January 2022
+      newList.shift()
 
       return newList
     })
