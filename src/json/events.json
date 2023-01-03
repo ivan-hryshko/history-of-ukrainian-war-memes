@@ -264,5 +264,30 @@
     "date": "2022-12-27",
     "text": "Путін подарував 9 кілець учасникам саміту СНД",
     "pictures": ["pitun-i-koltso.jpeg"]
+  },
+  {
+    "date": "2022-12-28",
+    "text": "Принято рішення про демонтаж памятнику Катерини ІІ в Одесі",
+    "pictures": ["ekaterina-vse.jpeg"]
+  },
+  {
+    "date": "2022-12-31",
+    "text": "У віці 95 років помер колишній Папа Римський Бенедикт XVI",
+    "pictures": ["papa-benedikt-XVI.jpeg"]
+  },
+  {
+    "date": "2022-12-31",
+    "text": "З новим роком!",
+    "pictures": ["z-novim-rokom.jpeg"]
+  },
+  {
+    "date": "2023-01-01",
+    "text": "114 річниця Степана Бандери",
+    "pictures": ["den-narodjenna-banderi.jpeg"]
+  },
+  {
+    "date": "2023-01-02",
+    "text": "Мем вийшов з під контролю)",
+    "pictures": ["bandera-mem-no-control.jpeg"]
   }
 ]
