@@ -231,6 +231,36 @@
     "pictures": ["zelenskii-bahmyt.jpeg"]
   },
   {
+    "date": "2022-12-21",
+    "text": "Зеленський відвідав США",
+    "pictures": ["zlenskii-usa.jpeg"]
+  },
+  {
+    "date": "2022-12-22",
+    "text": "Зі святом",
+    "pictures": ["100000.jpeg"]
+  },
+  {
+    "date": "2022-12-22",
+    "text": "Рогозіну розірвало дупу",
+    "pictures": ["rogozin-jopa.jpeg"]
+  },
+  {
+    "date": "2022-12-24",
+    "text": "В Дії розпочалося опитування щодо дати святкування Різдва",
+    "pictures": ["rizdvo-date.jpeg"]
+  },
+  {
+    "date": "2022-12-25",
+    "text": "У Слов'янськ до малечі завітав Санта на броньовику HMMWV",
+    "pictures": ["sloviansk-HMMWV.jpeg"]
+  },
+  {
+    "date": "2022-12-27",
+    "text": "Путін подарував 9 кілець учасникам саміту СНД",
+    "pictures": ["pitun-i-koltso.jpeg"]
+  },
+  {
     "date": "2022-11-11",
     "text": "Звільнення Херсону",
     "pictures": ["free-kherson.jpeg"]
