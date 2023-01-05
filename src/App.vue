@@ -36,14 +36,14 @@
                   Про нас
                 </router-link>
               </li>
-              <li>
+              <!-- <li>
                 <router-link
                   :to="{ path: '/feedback' }"
                   @click="handleSidebar"
                 >
                   Відгук
                 </router-link>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
