@@ -59,7 +59,10 @@
           <img src="@/assets/icons/burger-icon.png" alt="">
         </div>
         <div class="central-part">
-          <div class="month">
+          <div
+            v-if="route.path==='/'"
+            class="month"
+          >
             <div class="arrow">
               <img src="@/assets/icons/arrow.png" alt="">
             </div>
