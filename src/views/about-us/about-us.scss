@@ -8,12 +8,24 @@
   justify-content: center;
 
   .content {
-    margin-top: 40px;
+    padding-top: 40px;
     width: 600px;
+    height: 100%;
     text-align: start;
+    overflow: auto;
 
     p {
       margin-bottom: 20px;
+    }
+  }
+}
+
+@media (max-width:765px)  {
+  .about-us {
+    .content {
+      width: 100%;
+      height: 100%;
+      padding: 40px;
     }
   }
 }
