@@ -3,11 +3,34 @@
     <nav>
       <div class="header__bakground">
       </div>
+      <div
+        v-if="isSidebarOpen"
+        class="sidebar"
+      >
+        <div
+          class="sidebar__background"
+          @click="handleSidebar"
+        />
+        <div class="sidebar__content">
+          <div class="head">
+            <img
+              src="@/assets/icons/cross.svg"
+              @click="handleSidebar"
+            >
+          </div>
+          <div class="main">
+
+          </div>
+        </div>
+      </div>
       <div class="header__pages">
         <!-- <router-link to="/life-calendar">
           Life calendar
         </router-link> -->
-        <div class="burger-menu">
+        <div
+          class="burger-menu"
+          @click="handleSidebar"
+        >
           <img src="@/assets/icons/burger-icon.png" alt="">
         </div>
         <div class="central-part">
@@ -77,6 +100,8 @@ export default {
     const DIRECTION_OLD = 'from_old'
     const DIRECTION_NEW = 'from_new'
 
+    const isSidebarOpen = ref(false)
+
     // router.push({ query: { direction: DIRECTION_OLD } })
 
     function changeEventsDirection() {
@@ -89,8 +114,14 @@ export default {
       window.location.href = 'https://savelife.in.ua/donate/#donate-army-card-monthly';
     }
 
+    function handleSidebar() {
+      isSidebarOpen.value = !isSidebarOpen.value
+    }
+
     return {
       route,
+      isSidebarOpen,
+      handleSidebar,
       routeToPovernisGivim,
       changeEventsDirection,
     }
