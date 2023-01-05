@@ -91,6 +91,7 @@
 import { ref, watch, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { MONTH_NAME } from '@/constants/month'
+import { useMemSlider } from './store/use'
 
 export default {
   name: 'HistoryOfUkrainianWarMemes',
@@ -99,6 +100,8 @@ export default {
   setup() {
     const router = useRouter()
     const route = useRoute()
+
+    const { isModalOpen, store } = useMemSlider()
     const eventsDirection = ref(DIRECTION_OLD)
     const isShowMonthList = ref(false)
     const isShowSidebar = ref(false)
