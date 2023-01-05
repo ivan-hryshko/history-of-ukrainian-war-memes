@@ -125,7 +125,7 @@ export default {
     const DIRECTION_OLD = 'from_old'
     const DIRECTION_NEW = 'from_new'
 
-    const isSidebarOpen = ref(true)
+    const isSidebarOpen = ref(false)
 
     // router.push({ query: { direction: DIRECTION_OLD } })
 
