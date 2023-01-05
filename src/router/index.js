@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import WarMemes from '@/views/war-memes.vue'
+import AboutUs from '@/views/about-us'
 
 const routes = [
   {
     path: '/',
     name: 'war-memes',
     component: WarMemes,
+  },
+  {
+    path: '/about-us',
+    name: 'about-us',
+    component: AboutUs,
   },
   {
     path: '/life-calendar',

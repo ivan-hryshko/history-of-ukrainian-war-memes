@@ -40,7 +40,7 @@
     top: 0;
     left: 0;
     background-color: $main-color;
-    width: 300px;
+    width: 200px;
     height: 100%;
     z-index: 11;
     border-radius: 0px 16px 16px 0px;
@@ -53,6 +53,26 @@
 
       img {
         cursor: pointer;
+      }
+    }
+
+    .main {
+      ul {
+        margin-top: 20px;
+        margin-left: 35px;
+
+        li {
+          text-align: start;
+          list-style: none;
+          line-height: 40px;
+          cursor: pointer;
+
+          a {
+            font-size: 18px;
+            text-decoration: none;
+            margin: 0px;
+          }
+        }
       }
     }
   }
@@ -129,7 +149,7 @@ nav {
 }
 
 nav a {
-  font-weight: bold;
+  // font-weight: bold;
   color: #2c3e50;
   margin: 0px 20px;
   font-size: 30px;

@@ -19,7 +19,32 @@
             >
           </div>
           <div class="main">
-
+            <ul class="pages">
+              <li>
+                <router-link
+                  :to="{ path: '/' }"
+                  @click="handleSidebar"
+                >
+                  Головна
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  :to="{ path: '/about-us' }"
+                  @click="handleSidebar"
+                >
+                  Про нас
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  :to="{ path: '/feedback' }"
+                  @click="handleSidebar"
+                >
+                  Відгук
+                </router-link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -100,7 +125,7 @@ export default {
     const DIRECTION_OLD = 'from_old'
     const DIRECTION_NEW = 'from_new'
 
-    const isSidebarOpen = ref(false)
+    const isSidebarOpen = ref(true)
 
     // router.push({ query: { direction: DIRECTION_OLD } })
 
