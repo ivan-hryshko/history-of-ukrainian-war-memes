@@ -10,9 +10,10 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  overflow: hidden;
+  // overflow: hidden;
   font-weight: 500;
   width: 100%;
+  background-color: $background-color;
 }
 
 .view-layout {
@@ -149,7 +150,6 @@ nav {
   position: fixed;
   top: 40;
   left: 0;
-  background-color: $background-color;
   border-bottom: 1px solid #5B5B5B;
   z-index: -1;
 }

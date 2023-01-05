@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import WarMemes from '@/views/war-memes.vue'
 import AboutUs from '@/views/about-us'
+import LeaveFeedback from '@/views/leave-feedback'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/about-us',
     name: 'about-us',
     component: AboutUs,
+  },
+  {
+    path: '/leave-feedback',
+    name: 'leave-feedback',
+    component: LeaveFeedback,
   },
   {
     path: '/life-calendar',
