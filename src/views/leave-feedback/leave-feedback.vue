@@ -10,6 +10,9 @@
           
         </p>
         <input type="text"> -->
+        <h2 class="title">
+          Залиште відгук
+        </h2>
 
         <form name="contact" netlify>
           <p>
