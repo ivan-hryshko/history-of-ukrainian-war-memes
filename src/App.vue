@@ -117,6 +117,8 @@
 import { ref, watch, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { event } from 'vue-gtag'
+import { MONTH_NAME } from '@/constants/month'
+import { useMemSlider } from './store/use'
 
 export default {
   name: 'HistiryOfUkrainianWarMemes',
@@ -125,6 +127,8 @@ export default {
   setup() {
     const router = useRouter()
     const route = useRoute()
+
+    const { isModalOpen, store } = useMemSlider()
     const eventsDirection = ref(DIRECTION_OLD)
 
     const DIRECTION_OLD = 'from_old'
