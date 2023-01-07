@@ -6,14 +6,44 @@
     "pictures": ["russian-warship.jpeg"]
   },
   {
+    "date": "2022-02-27",
+    "text": "Початок серіалу \"Чорнобаївка\"",
+    "pictures": ["chornobaivka.jpeg"]
+  },
+  {
     "date": "2022-03-01",
     "text": "Захоплення групи чмонь поблизу Горлівки",
     "pictures": ["chmonya.jpeg"]
   },
   {
+    "date": "2022-03-05",
+    "text": "Макрон дуже стурбований",
+    "pictures": ["makron-zanepokoenii.jpeg"]
+  },
+  {
+    "date": "2022-03-05",
+    "text": "Віталій Кім в робочому процесі.\nP.S. Носочки вогонь",
+    "pictures": ["vitalii-kim-rabota.jpeg"]
+  },
+  {
+    "date": "2022-03-07",
+    "text": "Взяли інтервʼю у жінки, що збила ворожий дрон банкою помідорів",
+    "pictures": ["dron-pomidor.jpeg"]
+  },
+  {
     "date": "2022-03-29",
     "text": "Бавовна в Бєлгороді",
     "pictures": ["belgorod.jpeg", "belgorod_4.webp"]
+  },
+  {
+    "date": "2022-04-07",
+    "text": "Світ побачив символ незламності Бородянки",
+    "pictures": ["piven-borodianka.jpeg"]
+  },
+  {
+    "date": "2022-04-09",
+    "text": "Художниця з Харкова Валерія Полянскова подарувала глиняних півників Борису Джонсону та Володимиру Зеленському у центрі Києва",
+    "pictures": ["pivnuk-prezudent-djonson.webp"]
   },
   {
     "date": "2022-04-12",
@@ -66,9 +96,9 @@
     "pictures": ["moskva_done_marka.jpeg"]
   },
   {
-    "date": "2022-06-30",
-    "text": "Передача о.Зміїний в якості жеста доброї волі",
-    "pictures": ["jest-dobroi-voly.png", "jest-dobroi-voly_2.jpeg"]
+    "date": "2022-06-12",
+    "text": "Так як санкії не діють, то McDonald's в Москві перероблено у \"Вкусно и Точка\"",
+    "pictures": ["vkysno-i-tochka.jpeg"]
   },
   {
     "date": "2022-06-22",
@@ -89,6 +119,11 @@
     "date": "2022-06-28",
     "text": "Укрпошта випустила марку \"Доброго вечора, ми з України!\"",
     "pictures": ["mria_marka.jpeg"]
+  },
+  {
+    "date": "2022-06-30",
+    "text": "Передача о.Зміїний в якості жеста доброї волі",
+    "pictures": ["jest-dobroi-voly.png", "jest-dobroi-voly_2.jpeg"]
   },
   {
     "date": "2022-07-01",
