@@ -116,6 +116,8 @@
 <script>
 import { ref, watch, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { event } from 'vue-gtag'
+
 export default {
   name: 'HistiryOfUkrainianWarMemes',
   components: {
@@ -139,6 +141,7 @@ export default {
     }
 
     function routeToPovernisGivim() {
+      event('click-back-alive', { method: 'Google' })
       window.location.href = 'https://savelife.in.ua/donate/#donate-army-card-monthly';
     }
 

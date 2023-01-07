@@ -36,6 +36,7 @@
 import { ref, onMounted, watch, computed } from 'vue'
 import eventBlock from '@/components/event-block'
 import { useRouter, useRoute } from 'vue-router'
+import { event } from 'vue-gtag'
 
 export default {
   name: 'EventSlider',
@@ -112,6 +113,7 @@ export default {
 
     function showNextPack(index) {
       sortedEvents.value[index + 1].isOpen = true
+      event('show-next-pack', { method: 'Google' })
     }
 
     function isShowMoreButton(index) {
