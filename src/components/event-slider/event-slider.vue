@@ -10,11 +10,11 @@
         class="events"
       >
         <eventBlock
-          v-for="event, index in eventPack.events"
-          :key="event.date+index"
-          :text="event.text"
-          :date="event.date"
-          :pictures="event.pictures"
+          v-for="eventAtPack, index in eventPack.events"
+          :key="eventAtPack.date+index"
+          :text="eventAtPack.text"
+          :date="eventAtPack.date"
+          :pictures="eventAtPack.pictures"
         />
         <div
           class="show-more-wrapped"
@@ -97,7 +97,7 @@ export default {
       }]
       console.log('sorted :>> ', sorted);
       let sortedIndex = 0
-      events.forEach(event => {
+      events.forEach(someEvent => {
         if (sorted[sortedIndex].events.length === 10) {
           sorted.push({
             events: [],
@@ -105,7 +105,7 @@ export default {
           })
           sortedIndex += 1
         }
-        sorted[sortedIndex].events.push(event)
+        sorted[sortedIndex].events.push(someEvent)
       })
       console.log('sorted :>> ', sorted);
       sortedEvents.value = sorted
