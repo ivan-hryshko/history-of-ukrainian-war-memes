@@ -6,6 +6,11 @@
     "pictures": ["russian-warship.jpeg"]
   },
   {
+    "date": "2022-02-26",
+    "text": "Українці голіруч зупиняють російські танки",
+    "pictures": ["tank-rykami.jpeg"]
+  },
+  {
     "date": "2022-02-27",
     "text": "Початок серіалу \"Чорнобаївка\"",
     "pictures": ["chornobaivka.jpeg"]
@@ -307,7 +312,7 @@
   },
   {
     "date": "2022-12-18",
-    "text": "May the Armed Forces of Ukraine be with U",
+    "text": "\"May the Armed Forces of Ukraine be with U\". Оновлено застосунок \"Повітряна тривога\"",
     "pictures": ["trivoga-mark-gemill.jpeg"]
   },
   {
@@ -367,6 +372,11 @@
   },
   {
     "date": "2023-01-01",
+    "text": "УПЦ МП нарешті випхали з Лаври",
+    "pictures": ["YPC-MP-Lavra.jpeg"]
+  },
+  {
+    "date": "2023-01-01",
     "text": "114 річниця Степана Бандери",
     "pictures": ["den-narodjenna-banderi.jpeg"]
   },
@@ -374,5 +384,10 @@
     "date": "2023-01-02",
     "text": "Мем вийшов з-під контролю)",
     "pictures": ["bandera-mem-no-control.jpeg"]
+  },
+  {
+    "date": "2023-01-07",
+    "text": "У головному соборі Києво-Печерської лаври вперше проходить різдвяне богослужіння під проводом предстоятеля ПЦУ.",
+    "pictures": ["PCY-Lavra.png"]
   }
 ]
