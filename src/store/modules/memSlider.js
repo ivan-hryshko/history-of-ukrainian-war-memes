@@ -1,17 +1,29 @@
+import { EVENT_DIRECTION_VALUE } from '@/constants/general'
 
 const state = {
   projects: [],
   newProject: {},
   isModalOpen: false,
+  eventsDirection: EVENT_DIRECTION_VALUE.FROM_NEW,
 }
 
 const getters = {
   getIsModalOpen(state) {
     return state.isModalOpen
   },
+  getEventDirection(state) {
+    return state.eventsDirection
+  },
 }
 
 const mutations = {
+  CHANGE_EVENT_DIRECTION(state) {
+    if (state.eventsDirection === EVENT_DIRECTION_VALUE.FROM_NEW) {
+      state.eventsDirection = EVENT_DIRECTION_VALUE.FROM_OLD
+    } else {
+      state.eventsDirection = EVENT_DIRECTION_VALUE.FROM_NEW
+    }
+  },
   // UPDATE_PROJECTS(state, projects) {
   //   projects.forEach(project => {
   //     state.projects.push(project)
@@ -36,14 +48,9 @@ const mutations = {
 }
 
 const actions = {
-  // async requestProjects({ commit }) {
-  //   try {
-  //     const { data } = await requestProjects()
-  //     commit('UPDATE_PROJECTS', data)
-  //   } catch (err) {
-  //     throw err
-  //   }
-  // },
+  changeEventDirection({ commit }) {
+    commit('CHANGE_EVENT_DIRECTION')
+  },
 
   // async postProject({ commit }) {
   //   try {

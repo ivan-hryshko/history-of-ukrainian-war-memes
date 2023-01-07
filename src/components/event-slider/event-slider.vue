@@ -35,8 +35,8 @@
 <script>
 import { ref, onMounted, watch, computed } from 'vue'
 import eventBlock from '@/components/event-block'
-import { useRouter, useRoute } from 'vue-router'
 import { event } from 'vue-gtag'
+import { useMemSlider } from '@/store/use'
 
 export default {
   name: 'EventSlider',
@@ -53,28 +53,18 @@ export default {
     eventBlock,
   },
   setup(props) {
+    const {
+      eventDirection,
+    } = useMemSlider()
+
     const sortedEvents = ref([])
-    const route = useRoute()
 
-    const routerDirection = computed(() => route.query.direction)
-
-    // watch(() => props.events, (newValue, oldValue) => {
-    //   console.log('events');
-    //   console.log('oldValue :>> ', oldValue);
-    //   console.log('newValue :>> ', newValue);
-    //   // events = events.reverse()
-    // })
-
-    watch(() => routerDirection.value, (newValue, oldValue) => {
+    watch(() => eventDirection.value, (newValue, oldValue) => {
       console.log('oldValue :>> ', oldValue);
       console.log('newValue :>> ', newValue);
-      if (newValue === 'from_old') {
-        let { events } = props
-        events = events.reverse()
-        fillSortedEvents(events)
-      } else {
-        fillSortedEvents(props.events)
-      }
+      let { events } = props
+      events = events.reverse()
+      fillSortedEvents(events)
     }, { deep: true })
 
     const someEvents = computed(() => {

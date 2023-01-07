@@ -128,20 +128,17 @@ export default {
     const router = useRouter()
     const route = useRoute()
 
-    const { isModalOpen, store } = useMemSlider()
-    const eventsDirection = ref(DIRECTION_OLD)
-
-    const DIRECTION_OLD = 'from_old'
-    const DIRECTION_NEW = 'from_new'
+    const {
+      store,
+      isModalOpen,
+      changeEventDirection,
+    } = useMemSlider()
 
     const isSidebarOpen = ref(false)
 
-    // router.push({ query: { direction: DIRECTION_OLD } })
-
     function changeEventsDirection() {
-      console.log('route.query :>> ', route.query);
-      eventsDirection.value = route.query.direction === DIRECTION_OLD ? DIRECTION_NEW : DIRECTION_OLD
-      router.push({ query: { direction: eventsDirection.value } })
+      changeEventDirection()
+      event('change-event-direction', { method: 'Google' })
     }
 
     function routeToPovernisGivim() {

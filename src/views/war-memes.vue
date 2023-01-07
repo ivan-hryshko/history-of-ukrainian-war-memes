@@ -24,27 +24,6 @@ export default {
     EventSlider,
   },
   setup() {
-    const router = useRouter()
-    const route = useRoute()
-
-    const DIRECTION_OLD = 'from_old'
-    const DIRECTION_NEW = 'from_new'
-
-    const routerDirection = computed(() => route.query.direction)
-
-    // router.push({ query: { direction: DIRECTION_OLD } })
-
-    const routeQuery = computed(() => {
-      console.log('route.query.direction war :>> ', route.query.direction);
-      return route.query.direction
-    })
-
-    // watch(() => routerDirection.value, (newValue, oldValue) => {
-    //   console.log('oldValue :>> ', oldValue);
-    //   console.log('newValue :>> ', newValue);
-    //   events = events.reverse()
-    // }, { deep: true })
-
     function helloWorld() {
       console.log('HelloWorld');
     }
