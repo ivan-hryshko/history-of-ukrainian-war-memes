@@ -10,6 +10,9 @@
           <label>
             <p>
               Якщо ви знайшли помилку, або не знайшли свій улюблюний мем, будь ласка залиште нам відгук, ми постараємось виправитись :)
+              <br>
+              <br>
+              Нажаль в нас поки немає можливості прикріпити файл, якщо надішлете посилання на файл або картинку, будемо вдячні.
             </p>
             <textarea
               v-model="message"
@@ -17,12 +20,16 @@
             />
           </label>
         </p>
-        <p>
+        <!-- <p>
           <label>
             <p>Додати файл:</p>
-            <input name="file" type="file" class="file"/>
+            <input
+              name="file"
+              type="file"
+              class="file"
+            />
           </label>
-        </p>
+        </p> -->
         <p>
           <label>
             <p>
@@ -34,12 +41,20 @@
             />
           </label>
         </p>
-        <p>
+        <p
+          v-if="!isMessageSend"
+        >
           <button
             @click="submitMessage"
           >
             Відправити
           </button>
+        </p>
+        <p
+          v-else
+          class="succssesfull-message"
+        >
+          Повідомлення успішно відправлено. Дякуюємо за відгук)
         </p>
 
       </div>
@@ -54,6 +69,7 @@ import axios from 'axios'
 export default {
   name: 'LeaveFeedback',
   setup(props) {
+    const isMessageSend = ref(false)
     const message = ref('')
     const email = ref('')
     const token = ref('5621538987:AAEK213yJWLtgOYcTeWTxTsDkeANfl_Iyuk')
@@ -61,23 +77,43 @@ export default {
 
     const fullMessage = computed(() => `Message: ${message.value}\n Email: ${email.value}`)
 
+    // function uploadFile() {
+    //   this.Images = this.$refs.file.files[0];
+    // }
+
+    // function submitFile() {
+    //   const formData = new FormData();
+    //   formData.append('file', this.Images);
+    //   const headers = { 'Content-Type': 'multipart/form-data' };
+    //   axios.post('https://httpbin.org/post', formData, { headers }).then((res) => {
+    //     res.data.files; // binary representation of the file
+    //     res.status; // HTTP status
+    //   });
+    // }
+
     function submitMessage() {
-      console.log('fullMessage.value :>> ', fullMessage.value);
-      axios
-        .get("https://finalspaceapi.com/api/v0/character/?limit=2")
-        .then((response) => {
-          console.log(response);
-        });
-      axios
-        .post(`https://api.telegram.org/bot${token.value}/sendMessage?chat_id=${chatId.value}&text=${fullMessage.value}`)
-        .then((response) => {
-          console.log(response);
-        });
+      // For test
+      // axios
+      //   .get("https://finalspaceapi.com/api/v0/character/?limit=2")
+      //   .then((response) => {
+      //     console.log(response);
+      //   });
+      try {
+        axios
+          .post(`https://api.telegram.org/bot${token.value}/sendMessage?chat_id=${chatId.value}&text=${fullMessage.value}`)
+          .then((response) => {
+            // console.log(response);
+          });
+        isMessageSend.value = true
+      } catch (error) {
+        console.log(error)
+      }
     }
 
     return {
       email,
       message,
+      isMessageSend,
       submitMessage,
     }
   },

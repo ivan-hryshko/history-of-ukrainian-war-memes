@@ -33,10 +33,10 @@
       height: 40px;
       padding-left: 20px;
       border-radius: 5px;
+      margin-bottom: 20px;
     }
 
     button {
-      margin-top: 20px;
       background-color: $main-color;
       border: none;
       padding: 10px;
@@ -50,6 +50,10 @@
 
     .file {
       padding: 0;
+    }
+
+    .succssesfull-message {
+      color: green;
     }
   }
 
