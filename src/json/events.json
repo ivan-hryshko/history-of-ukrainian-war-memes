@@ -41,6 +41,11 @@
     "pictures": ["2-3-tigni.jpeg"]
   },
   {
+    "date": "2022-04-02",
+    "text": "\"Росіяни можуть піти з Чорнобиля, але Чорнобиль з них – ні.\"\n Звільнення Київської області ",
+    "pictures": ["chornobil.jpeg"]
+  },
+  {
     "date": "2022-04-07",
     "text": "Світ побачив символ незламності Бородянки",
     "pictures": ["piven-borodianka.jpeg"]
@@ -99,6 +104,11 @@
     "date": "2022-05-23",
     "text": "Укрпошта випустила марку \"Русскій воєнний корабль … ВСЬО!\"",
     "pictures": ["moskva_done_marka.jpeg"]
+  },
+  {
+    "date": "2022-05-25",
+    "text": "Псс... Солі не треба?)",
+    "pictures": ["sol.jpeg"]
   },
   {
     "date": "2022-06-12",
@@ -277,6 +287,11 @@
   },
   {
     "date": "2022-11-23",
+    "text": "Україна пережила перший блекаут",
+    "pictures": ["blackout.jpeg"]
+  },
+  {
+    "date": "2022-11-23",
     "text": "Литовці завершили збір на 3 морські дрони",
     "pictures": ["litva-sea-drones.jpeg"]
   },
@@ -289,6 +304,11 @@
     "date": "2022-12-02",
     "text": "Зеленський підписав указ, яким увів у дію рішення РНБО щодо УПЦ (МП).",
     "pictures": ["nakaz-ypc.jpeg"]
+  },
+  {
+    "date": "2022-12-18",
+    "text": "May the Armed Forces of Ukraine be with U",
+    "pictures": ["trivoga-mark-gemill.jpeg"]
   },
   {
     "date": "2022-12-19",
