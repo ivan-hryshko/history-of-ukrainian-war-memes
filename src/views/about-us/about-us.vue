@@ -27,11 +27,15 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { event } from 'vue-gtag'
 
 export default {
   name: 'AboutUs',
   setup(props) {
+    onMounted(() => {
+      event('open-about-us', { method: 'Google' })
+    })
     return {
     }
   },

@@ -12,10 +12,11 @@
 </template>
 
 <script>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import EventSlider from '@/components/event-slider'
 import events from '@/json/events.json'
 import { useRouter, useRoute } from 'vue-router'
+import { event } from 'vue-gtag'
 
 export default {
   name: 'WarMemes',
@@ -61,6 +62,10 @@ export default {
     }
 
     sortEvents()
+
+    onMounted(() => {
+      event('open-app', { method: 'Google' })
+    })
 
     return {
       events,

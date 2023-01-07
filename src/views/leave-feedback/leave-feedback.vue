@@ -65,6 +65,7 @@
 <script>
 import { ref, computed } from 'vue'
 import axios from 'axios'
+import { event } from 'vue-gtag'
 
 export default {
   name: 'LeaveFeedback',
@@ -109,6 +110,10 @@ export default {
         console.log(error)
       }
     }
+
+    onMounted(() => {
+      event('open-feedback', { method: 'Google' })
+    })
 
     return {
       email,
