@@ -79,7 +79,7 @@
 
 <script>
 import { ref, computed } from 'vue'
-import { MONTH_NAME } from '@/constants/month'
+import { MONTH_NAME_RODOVOI } from '@/constants/month'
 
 export default {
   name: 'EventBlock',
@@ -138,7 +138,7 @@ export default {
     })
 
     const eventMonthName = computed(() => {
-      return MONTH_NAME[eventMonth.value - 1]
+      return MONTH_NAME_RODOVOI[eventMonth.value - 1]
     })
 
     const imageStyleOptions = computed((index) => {
