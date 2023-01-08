@@ -46,6 +46,7 @@
         >
           <button
             @click="submitMessage"
+            class="yellow-theme"
           >
             Відправити
           </button>
