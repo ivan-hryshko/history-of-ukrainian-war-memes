@@ -10,11 +10,19 @@
         class="events"
       >
         <eventBlock
-          v-for="event, index in eventPack.events"
-          :key="event.date+index"
-          :text="event.text"
-          :date="event.date"
-          :pictures="event.pictures"
+          v-for="eventAtPack, index in eventPack.events"
+          :key="eventAtPack.date+index"
+          :text="eventAtPack.text"
+          :date="eventAtPack.date"
+          :pictures="eventAtPack.pictures"
+        />
+        <eventBlock
+          v-if="index === 0 || index === eventPack.events.length - 1"
+          :key="index+'back_alive'"
+          text="Дякуємо нашим бійцям, завдяки яким ми можемо дивитись ці меми. Щоб збільшити кількість бавовни та харошіх рускіх, пропонуємо вам підтримати копійкою фонд 'Повернись живим'"
+          :pictures="['povernis-jivim-black-box.jpeg']"
+          back-alive
+          @backAlive="routeToPovernisGivim(index)"
         />
         <div
           class="show-more-wrapped"
@@ -35,7 +43,8 @@
 <script>
 import { ref, onMounted, watch, computed } from 'vue'
 import eventBlock from '@/components/event-block'
-import { useRouter, useRoute } from 'vue-router'
+import { event } from 'vue-gtag'
+import { useMemSlider } from '@/store/use'
 
 export default {
   name: 'EventSlider',
@@ -52,28 +61,18 @@ export default {
     eventBlock,
   },
   setup(props) {
+    const {
+      eventDirection,
+    } = useMemSlider()
+
     const sortedEvents = ref([])
-    const route = useRoute()
 
-    const routerDirection = computed(() => route.query.direction)
-
-    // watch(() => props.events, (newValue, oldValue) => {
-    //   console.log('events');
-    //   console.log('oldValue :>> ', oldValue);
-    //   console.log('newValue :>> ', newValue);
-    //   // events = events.reverse()
-    // })
-
-    watch(() => routerDirection.value, (newValue, oldValue) => {
+    watch(() => eventDirection.value, (newValue, oldValue) => {
       console.log('oldValue :>> ', oldValue);
       console.log('newValue :>> ', newValue);
-      if (newValue === 'from_old') {
-        let { events } = props
-        events = events.reverse()
-        fillSortedEvents(events)
-      } else {
-        fillSortedEvents(props.events)
-      }
+      let { events } = props
+      events = events.reverse()
+      fillSortedEvents(events)
     }, { deep: true })
 
     const someEvents = computed(() => {
@@ -96,7 +95,7 @@ export default {
       }]
       console.log('sorted :>> ', sorted);
       let sortedIndex = 0
-      events.forEach(event => {
+      events.forEach(someEvent => {
         if (sorted[sortedIndex].events.length === 10) {
           sorted.push({
             events: [],
@@ -104,7 +103,7 @@ export default {
           })
           sortedIndex += 1
         }
-        sorted[sortedIndex].events.push(event)
+        sorted[sortedIndex].events.push(someEvent)
       })
       console.log('sorted :>> ', sorted);
       sortedEvents.value = sorted
@@ -112,6 +111,7 @@ export default {
 
     function showNextPack(index) {
       sortedEvents.value[index + 1].isOpen = true
+      event('show-next-pack', { method: 'Google' })
     }
 
     function isShowMoreButton(index) {
@@ -119,10 +119,20 @@ export default {
       return sortedEvents.value[index + 1]?.isOpen === false
     }
 
+    function routeToPovernisGivim(index) {
+      if (index === 0) {
+        event('click-back-alive-post-10', { method: 'Google' })
+      } else {
+        event('click-back-alive-post-last', { method: 'Google' })
+      }
+      window.location.href = 'https://savelife.in.ua/donate/#donate-army-card-monthly';
+    }
+
     return {
       sortedEvents,
       showNextPack,
       isShowMoreButton,
+      routeToPovernisGivim,
     }
   },
 }

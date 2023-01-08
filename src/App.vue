@@ -3,18 +3,66 @@
     <nav>
       <div class="header__bakground">
       </div>
+      <div
+        v-if="isSidebarOpen"
+        class="sidebar"
+      >
+        <div
+          class="sidebar__background"
+          @click="handleSidebar"
+        />
+        <div class="sidebar__content">
+          <div class="head">
+            <img
+              src="@/assets/icons/cross.svg"
+              @click="handleSidebar"
+            >
+          </div>
+          <div class="main">
+            <ul class="pages">
+              <li>
+                <router-link
+                  :to="{ path: '/' }"
+                  @click="handleSidebar"
+                >
+                  Головна
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  :to="{ path: '/about-us' }"
+                  @click="handleSidebar"
+                >
+                  Про нас
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  :to="{ path: '/leave-feedback' }"
+                  @click="handleSidebar"
+                >
+                  Відгук
+                </router-link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <div class="header__pages">
         <!-- <router-link to="/life-calendar">
           Life calendar
         </router-link> -->
         <div
           class="burger-menu"
-          @click="showSidebar"
+          @click="handleSidebar"
         >
           <img src="@/assets/icons/burger-icon.png" alt="">
         </div>
         <div class="central-part">
-          <div class="month">
+          <div
+            v-if="route.path==='/'"
+            class="month"
+          >
             <div
               class="month-head"
               @click="handleShowMonthList"
@@ -90,6 +138,7 @@
 <script>
 import { ref, watch, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { event } from 'vue-gtag'
 import { MONTH_NAME } from '@/constants/month'
 import { useMemSlider } from './store/use'
 
@@ -101,15 +150,17 @@ export default {
     const router = useRouter()
     const route = useRoute()
 
-    const { isModalOpen, store } = useMemSlider()
-    const eventsDirection = ref(DIRECTION_OLD)
     const isShowMonthList = ref(false)
     const isShowSidebar = ref(false)
     const currentMonth = ref(`${MONTH_NAME[1]} 2022`)
     const currentDate = ref(new Date)
 
-    const DIRECTION_OLD = 'from_old'
-    const DIRECTION_NEW = 'from_new'
+    const {
+      store,
+      isModalOpen,
+      changeEventDirection,
+    } = useMemSlider()
+    const isSidebarOpen = ref(false)
 
     console.log('currentDate.value :>> ', currentDate.value);
     console.log('currentDate.value :>> ', currentDate.value.getFullYear());
@@ -137,15 +188,13 @@ export default {
       return newList
     })
 
-    // router.push({ query: { direction: DIRECTION_OLD } })
-
     function changeEventsDirection() {
-      console.log('route.query :>> ', route.query);
-      eventsDirection.value = route.query.direction === DIRECTION_OLD ? DIRECTION_NEW : DIRECTION_OLD
-      router.push({ query: { direction: eventsDirection.value } })
+      changeEventDirection()
+      event('change-event-direction', { method: 'Google' })
     }
 
     function routeToPovernisGivim() {
+      event('click-back-alive', { method: 'Google' })
       window.location.href = 'https://savelife.in.ua/donate/#donate-army-card-monthly';
     }
 
@@ -158,8 +207,8 @@ export default {
       isShowMonthList.value = false
     }
 
-    function showSidebar() {
-      isShowSidebar.value = true
+    function handleSidebar() {
+      isSidebarOpen.value = !isSidebarOpen.value
     }
 
     return {
@@ -169,9 +218,10 @@ export default {
       isShowMonthList,
       isShowSidebar,
       generatedMonthList,
+      isSidebarOpen,
       changeMonth,
-      showSidebar,
       handleShowMonthList,
+      handleSidebar,
       routeToPovernisGivim,
       changeEventsDirection,
     }

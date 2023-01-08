@@ -5,17 +5,27 @@ import store from '../index'
 console.log('store :>> ', store);
 
 function useMemSlider() {
-  const { useGetters } = createNamespacedHelpers(store, 'memSlider')
+  const { useGetters, useActions } = createNamespacedHelpers(store, 'memSlider')
   console.log('useGetters :>> ', useGetters);
 
   const {
     getIsModalOpen: isModalOpen,
+    getEventDirection: eventDirection,
   } = useGetters([
     'getIsModalOpen',
+    'getEventDirection',
+  ])
+
+  const {
+    changeEventDirection,
+  } = useActions([
+    'changeEventDirection',
   ])
 
   return {
     isModalOpen,
+    eventDirection,
+    changeEventDirection,
   }
 }
 

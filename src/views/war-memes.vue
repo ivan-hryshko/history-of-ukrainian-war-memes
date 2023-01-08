@@ -12,10 +12,11 @@
 </template>
 
 <script>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import EventSlider from '@/components/event-slider'
 import events from '@/json/events.json'
 import { useRouter, useRoute } from 'vue-router'
+import { event } from 'vue-gtag'
 
 export default {
   name: 'WarMemes',
@@ -23,27 +24,6 @@ export default {
     EventSlider,
   },
   setup() {
-    const router = useRouter()
-    const route = useRoute()
-
-    const DIRECTION_OLD = 'from_old'
-    const DIRECTION_NEW = 'from_new'
-
-    const routerDirection = computed(() => route.query.direction)
-
-    // router.push({ query: { direction: DIRECTION_OLD } })
-
-    const routeQuery = computed(() => {
-      console.log('route.query.direction war :>> ', route.query.direction);
-      return route.query.direction
-    })
-
-    // watch(() => routerDirection.value, (newValue, oldValue) => {
-    //   console.log('oldValue :>> ', oldValue);
-    //   console.log('newValue :>> ', newValue);
-    //   events = events.reverse()
-    // }, { deep: true })
-
     function helloWorld() {
       console.log('HelloWorld');
     }
@@ -61,6 +41,10 @@ export default {
     }
 
     sortEvents()
+
+    onMounted(() => {
+      event('open-app', { method: 'Google' })
+    })
 
     return {
       events,

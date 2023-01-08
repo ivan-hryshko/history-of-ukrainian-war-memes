@@ -1,8 +1,13 @@
 <template>
   <div class="event-block">
 
-    <div class="event-block__days">
-      <div class="event-block__date">
+    <div
+      class="event-block__days"
+    >
+      <div
+        v-if="date"
+        class="event-block__date"
+      >
         <div class="day-wrapped">
           <div class="date__icon">
             <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +29,10 @@
         </div>
       </div>
 
-      <div class="event-block__day-block">
+      <div
+        v-if="date"
+        class="event-block__day-block"
+      >
         <div class="event-block__day-wrapped">
           <div class="event-block__day">
             <!-- День -->
@@ -44,7 +52,7 @@
         <!-- v-for="pictureName, index in pictures"
         :key="pictureName" -->
         <img
-          :src="require(`@/assets/memes/${pictures[currentPictureIndex]}`)"
+          :src="getImagePath()"
           class="event-block__image"
         >
         <!-- :style="imageStyleOptions(index)" -->
@@ -54,6 +62,16 @@
     <div class="event-block__text-block">
       <div class="event-block__text">
         {{ text }}
+      </div>
+      <div
+        v-if="backAlive"
+        class="event-block__action"
+      >
+        <button
+          @click="routeToPovernisGivim"
+        >
+          Підтримати
+        </button>
       </div>
     </div>
   </div>
@@ -88,8 +106,15 @@ export default {
       type: Array,
       default: () => [],
     },
+    /**
+     * use it if you want to add button to event
+     */
+    backAlive: {
+      type: Boolean,
+      default: false,
+    },
   },
-  setup(props) {
+  setup(props, { emit }) {
     const days = ref(0)
     const picturePath = ref(`src/assets/memes/${props.pictureName}`)
     const currentPictureIndex = ref(0)
@@ -140,6 +165,19 @@ export default {
       return pictures.length > 1
     }
 
+    function getImagePath() {
+      try {
+        const path = require(`@/assets/memes/${props.pictures[currentPictureIndex.value]}`)
+        return require(`@/assets/memes/${props.pictures[currentPictureIndex.value]}`)
+      } catch (error) {
+        console.log('error :>> ', error);
+      }
+    }
+
+    function routeToPovernisGivim() {
+      emit('backAlive')
+    }
+
     const warStart = new Date('2022-02-24')
     // console.log('warStart evetnt :>> ', warStart)
     const eventDate = new Date(props.date)
@@ -161,9 +199,11 @@ export default {
       currentPictureIndex,
       imageStyleOptions,
       eventMonthName,
+      getImagePath,
       nextPicture,
       isShowArrow,
       previousPicture,
+      routeToPovernisGivim,
     }
   },
 }

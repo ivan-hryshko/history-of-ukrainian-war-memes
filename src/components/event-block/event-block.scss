@@ -34,7 +34,8 @@
   justify-content: space-between;
   text-align: right;
   padding: 16px;
-  width: 100%
+  width: 100%;
+  min-height: 46px;
 }
 
 .event-block__day-block {
@@ -116,19 +117,32 @@
 
 .event-block__text-block {
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
 }
 
 .event-block__text {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: start;
+  text-align: left;
   border-radius: 8px;
   color: black;
-  font-size: 12px;
-  padding: 16px;
+  font-size: 14px;
 }
+
+.event-block__action {
+  margin-top: 16px;
+  width: 100%;
+
+  button {
+    width: 100%;
+    background-color: $button-color;
+  }
+}
+
 .event-block__images-wrapped {
   display: flex;
   justify-content: center;
@@ -212,8 +226,6 @@
   }
 
   .event-block__text {
-    font-size: 14px;
-    padding-right: 0px;
   }
 
   .event-block__images {
