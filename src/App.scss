@@ -226,10 +226,6 @@ nav a.router-link-exact-active {
   fill: grey;
 }
 
-.rotate-icon svg:hover polygon {
-  fill: white;
-}
-
 img {
   display: block;
   margin: 0px;
@@ -294,6 +290,10 @@ img {
       width: 150px;
     }
   }
+}
 
-
+@media (hover: hover) {
+  .rotate-icon svg:hover polygon {
+    fill: white;
+  }
 }
