@@ -5,7 +5,7 @@
   height: 100%;
   z-index: 200;
   position: relative;
-  overflow: hidden;
+  overflow: auto;
   background-repeat: repeat-y;
   background-image: url("@/assets/ukrainian-ornament.jpeg");
   background-size: 150px;

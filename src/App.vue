@@ -6,6 +6,7 @@
       <div
         v-if="isSidebarOpen"
         class="sidebar"
+        :style="sidebarStyleOption"
       >
         <div
           class="sidebar__background"
@@ -169,6 +170,12 @@ export default {
     } = useMemSlider()
     const isSidebarOpen = ref(false)
 
+    const sidebarStyleOption = computed(() => {
+      return {
+        'display': isSidebarOpen.value ? 'block' : 'none',
+      }
+    })
+
     console.log('currentDate.value :>> ', currentDate.value);
     console.log('currentDate.value :>> ', currentDate.value.getFullYear());
     console.log('currentDate.value :>> ', currentDate.value.getMonth());
@@ -233,6 +240,7 @@ export default {
       isShowSidebar,
       generatedMonthList,
       isSidebarOpen,
+      sidebarStyleOption,
       selectedDateFilter,
       changeMonth,
       hideMonthList,
