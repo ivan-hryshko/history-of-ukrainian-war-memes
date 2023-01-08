@@ -136,7 +136,7 @@ nav {
     background: $main-color;
     border-radius: 16px;
     position: relative;
-    width: 160px;
+    width: 170px;
     font-size: 14px;
 
     .month-head {
@@ -258,10 +258,6 @@ img {
 }
 
 @media (max-width:765px)  {
-  .month {
-    // width: 160px;
-  }
-
   nav a {
     font-size: 15px;
     margin: 0px 10px;
@@ -286,6 +282,10 @@ img {
     .central-part {
       display: flex;
       gap: 10px;
+    }
+
+    .month {
+      width: 150px;
     }
   }
 
