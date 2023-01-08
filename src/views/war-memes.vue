@@ -15,7 +15,6 @@
 import { ref, computed, watch, onMounted } from 'vue'
 import EventSlider from '@/components/event-slider'
 import events from '@/json/events.json'
-import { useRouter, useRoute } from 'vue-router'
 import { event } from 'vue-gtag'
 
 export default {
@@ -28,7 +27,7 @@ export default {
       console.log('HelloWorld');
     }
 
-    function sortEvents() {
+    function sortEventsByDate() {
       events.sort((a, b) => {
         if (a.date > b.date) {
           return 1;
@@ -40,7 +39,7 @@ export default {
       })
     }
 
-    sortEvents()
+    sortEventsByDate()
 
     onMounted(() => {
       event('open-app', { method: 'Google' })

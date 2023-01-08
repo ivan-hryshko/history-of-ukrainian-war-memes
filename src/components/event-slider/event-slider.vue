@@ -45,6 +45,7 @@ import { ref, onMounted, watch, computed } from 'vue'
 import eventBlock from '@/components/event-block'
 import { event } from 'vue-gtag'
 import { useMemSlider } from '@/store/use'
+import { MONTH_NAME } from '@/constants/month'
 
 export default {
   name: 'EventSlider',
@@ -63,16 +64,22 @@ export default {
   setup(props) {
     const {
       eventDirection,
+      selectedDateFilter,
     } = useMemSlider()
 
     const sortedEvents = ref([])
 
     watch(() => eventDirection.value, (newValue, oldValue) => {
-      console.log('oldValue :>> ', oldValue);
-      console.log('newValue :>> ', newValue);
       let { events } = props
       events = events.reverse()
-      fillSortedEvents(events)
+      divideEventsByPack(filterEventsBySelectedDate(events))
+    }, { deep: true })
+
+    watch(() => selectedDateFilter.value, (newValue, oldValue) => {
+      if (oldValue !== newValue) {
+        const { events } = props
+        divideEventsByPack(filterEventsBySelectedDate(events))
+      }
     }, { deep: true })
 
     const someEvents = computed(() => {
@@ -85,10 +92,10 @@ export default {
     })
 
     function initialization() {
-      fillSortedEvents(props.events)
+      divideEventsByPack(props.events)
     }
 
-    function fillSortedEvents(events) {
+    function divideEventsByPack(events) {
       const sorted = [{
         events: [],
         isOpen: true,
@@ -107,6 +114,20 @@ export default {
       })
       console.log('sorted :>> ', sorted);
       sortedEvents.value = sorted
+    }
+
+    function filterEventsBySelectedDate(events) {
+      const [filterMonth, filterYear] = selectedDateFilter.value.split(' ')
+      event(`filter-event-by-month-${filterYear}-${filterMonth}`, { method: 'Google' })
+      if (selectedDateFilter.value === 'Всі') {
+        return events
+      }
+      return events.filter(someEvent => {
+        const [eventYear, eventMonth, eventDay] = someEvent.date.split('-')
+        const isYearCorrect = eventYear === filterYear
+        const isMonthCorrect = MONTH_NAME.findIndex(monthName => monthName === filterMonth) === Number(eventMonth) - 1
+        return isYearCorrect && isMonthCorrect
+      })
     }
 
     function showNextPack(index) {
