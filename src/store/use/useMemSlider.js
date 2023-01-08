@@ -6,7 +6,6 @@ console.log('store :>> ', store);
 
 function useMemSlider() {
   const { useGetters, useActions } = createNamespacedHelpers(store, 'memSlider')
-  console.log('useGetters :>> ', useGetters);
 
   const {
     getIsModalOpen: isModalOpen,
