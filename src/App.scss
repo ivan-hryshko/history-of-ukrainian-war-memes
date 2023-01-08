@@ -144,7 +144,12 @@ nav {
       align-items: center;
       padding: 14px;
       height: 37px;
+      width: 100%;
       cursor: pointer;
+
+      .month-text {
+        width: 100%;
+      }
     }
 
     .month-list {

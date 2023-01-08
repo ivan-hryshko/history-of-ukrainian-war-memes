@@ -5,6 +5,7 @@ const state = {
   newProject: {},
   isModalOpen: false,
   eventsDirection: EVENT_DIRECTION_VALUE.FROM_NEW,
+  selectedDateFilter: 'Всі',
 }
 
 const getters = {
@@ -13,6 +14,9 @@ const getters = {
   },
   getEventDirection(state) {
     return state.eventsDirection
+  },
+  getSelectedDateFilter(state) {
+    return state.selectedDateFilter
   },
 }
 
@@ -23,6 +27,9 @@ const mutations = {
     } else {
       state.eventsDirection = EVENT_DIRECTION_VALUE.FROM_NEW
     }
+  },
+  CHANGE_SELECTED_DATE_FILTER(state, date) {
+    state.selectedDateFilter = date
   },
   // UPDATE_PROJECTS(state, projects) {
   //   projects.forEach(project => {
@@ -50,6 +57,9 @@ const mutations = {
 const actions = {
   changeEventDirection({ commit }) {
     commit('CHANGE_EVENT_DIRECTION')
+  },
+  changeSelectedDateFilter({ commit }, date) {
+    commit('CHANGE_SELECTED_DATE_FILTER', date)
   },
 
   // async postProject({ commit }) {

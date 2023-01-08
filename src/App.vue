@@ -71,7 +71,7 @@
                 <img src="@/assets/icons/arrow.png" alt="">
               </div>
               <div class="month-text">
-                {{ currentMonth }}
+                {{ selectedDateFilter }}
               </div>
             </div>
             <ul
@@ -158,7 +158,9 @@ export default {
     const {
       store,
       isModalOpen,
+      selectedDateFilter,
       changeEventDirection,
+      changeSelectedDateFilter,
     } = useMemSlider()
     const isSidebarOpen = ref(false)
 
@@ -184,6 +186,7 @@ export default {
 
       // delete January 2022
       newList.shift()
+      newList.unshift('Всі')
 
       return newList
     })
@@ -203,7 +206,7 @@ export default {
     }
 
     function changeMonth(month) {
-      currentMonth.value = month
+      changeSelectedDateFilter(month)
       isShowMonthList.value = false
     }
 
@@ -219,6 +222,7 @@ export default {
       isShowSidebar,
       generatedMonthList,
       isSidebarOpen,
+      selectedDateFilter,
       changeMonth,
       handleShowMonthList,
       handleSidebar,

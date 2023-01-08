@@ -11,21 +11,27 @@ function useMemSlider() {
   const {
     getIsModalOpen: isModalOpen,
     getEventDirection: eventDirection,
+    getSelectedDateFilter: selectedDateFilter,
   } = useGetters([
     'getIsModalOpen',
     'getEventDirection',
+    'getSelectedDateFilter',
   ])
 
   const {
     changeEventDirection,
+    changeSelectedDateFilter,
   } = useActions([
     'changeEventDirection',
+    'changeSelectedDateFilter',
   ])
 
   return {
     isModalOpen,
     eventDirection,
+    selectedDateFilter,
     changeEventDirection,
+    changeSelectedDateFilter,
   }
 }
 
