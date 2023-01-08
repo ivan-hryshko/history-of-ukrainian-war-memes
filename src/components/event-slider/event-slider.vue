@@ -16,6 +16,14 @@
           :date="eventAtPack.date"
           :pictures="eventAtPack.pictures"
         />
+        <eventBlock
+          v-if="index === 0 || index === eventPack.events.length - 1"
+          :key="index+'back_alive'"
+          text="Дякуємо нашим бійцям, завдяки яким ми можемо дивитись ці меми. Щоб збільшити кількість бавовни та харошіх рускіх, пропонуємо вам підтримати копійкою фонд 'Повернись живим'"
+          :pictures="['povernis-jivim-black-box.jpeg']"
+          back-alive
+          @backAlive="routeToPovernisGivim(index)"
+        />
         <div
           class="show-more-wrapped"
         >
@@ -111,10 +119,20 @@ export default {
       return sortedEvents.value[index + 1]?.isOpen === false
     }
 
+    function routeToPovernisGivim(index) {
+      if (index === 0) {
+        event('click-back-alive-post-10', { method: 'Google' })
+      } else {
+        event('click-back-alive-post-last', { method: 'Google' })
+      }
+      window.location.href = 'https://savelife.in.ua/donate/#donate-army-card-monthly';
+    }
+
     return {
       sortedEvents,
       showNextPack,
       isShowMoreButton,
+      routeToPovernisGivim,
     }
   },
 }

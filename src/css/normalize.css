@@ -208,6 +208,15 @@ textarea {
     /* 2 */
 }
 
+button {
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #2680c0;
+    cursor: pointer;
+}
+
 /**
  * Show the overflow in IE.
  * 1. Show the overflow in Edge.
