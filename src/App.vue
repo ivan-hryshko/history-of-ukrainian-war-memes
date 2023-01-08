@@ -61,6 +61,7 @@
         <div class="central-part">
           <div
             v-if="route.path==='/'"
+            v-click-out-side="hideMonthList"
             class="month"
           >
             <div
@@ -141,10 +142,14 @@ import { useRouter, useRoute } from 'vue-router'
 import { event } from 'vue-gtag'
 import { MONTH_NAME } from '@/constants/month'
 import { useMemSlider } from '@/store/use'
+import clickOutSide from "@mahdikhashan/vue3-click-outside";
 
 export default {
   name: 'HistoryOfUkrainianWarMemes',
   components: {
+  },
+  directives: {
+    clickOutSide,
   },
   setup() {
     const router = useRouter()
@@ -205,6 +210,12 @@ export default {
       isShowMonthList.value = !isShowMonthList.value
     }
 
+    function hideMonthList() {
+      if (isShowMonthList.value) {
+        isShowMonthList.value = false
+      }
+    }
+
     function changeMonth(month) {
       changeSelectedDateFilter(month)
       isShowMonthList.value = false
@@ -224,6 +235,7 @@ export default {
       isSidebarOpen,
       selectedDateFilter,
       changeMonth,
+      hideMonthList,
       handleShowMonthList,
       handleSidebar,
       routeToPovernisGivim,
