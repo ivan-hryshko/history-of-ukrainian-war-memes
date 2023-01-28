@@ -132,7 +132,7 @@ export default {
 
     function showNextPack(index) {
       sortedEvents.value[index + 1].isOpen = true
-      event('show-next-pack', { method: 'Google' })
+      event(`show-next-pack-${index + 1}`, { method: 'Google' })
     }
 
     function isShowMoreButton(index) {
