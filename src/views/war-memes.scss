@@ -3,7 +3,6 @@
 .layout {
   display: grid;
   grid-template-columns: 1fr;
-  overflow: scroll;
   height: 100%;
   width: 100%;
 }
@@ -19,7 +18,6 @@
 .events {
   justify-self: center;
   margin-bottom: 40px;
-  overflow: auto;
   height: 100%;
 }
 
@@ -31,7 +29,6 @@
 
   .layout {
     grid-template-columns: 1fr;
-    overflow: scroll;
   }
 
   .events {

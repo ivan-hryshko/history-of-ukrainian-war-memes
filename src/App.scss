@@ -10,9 +10,12 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  // overflow: hidden;
+  overflow: scroll;
+  // For Safari at OS X
+  -webkit-overflow-scrolling: touch;
   font-weight: 500;
   width: 100%;
+  height: 100%;
   background-color: $background-color;
 }
 
@@ -31,8 +34,8 @@ li {
 }
 
 .content {
-  overflow: auto;
   width: 100%;
+  height: 100%;
 }
 
 .sidebar {
@@ -167,6 +170,7 @@ nav {
       padding: 14px;
       height: 300px;
       overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
       border-radius: 16px;
       cursor: pointer;
 
